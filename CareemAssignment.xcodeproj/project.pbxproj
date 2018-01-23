@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		7D32BD792017085300E6DC0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD782017085300E6DC0F /* AppDelegate.swift */; };
-		7D32BD7B2017085300E6DC0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD7A2017085300E6DC0F /* ViewController.swift */; };
-		7D32BD7E2017085300E6DC0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D32BD7C2017085300E6DC0F /* Main.storyboard */; };
-		7D32BD812017085300E6DC0F /* CareemAssignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD7F2017085300E6DC0F /* CareemAssignment.xcdatamodeld */; };
+		7D32BD7B2017085300E6DC0F /* SearchMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */; };
+		7D32BD7E2017085300E6DC0F /* SearchMoviesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D32BD7C2017085300E6DC0F /* SearchMoviesViewController.storyboard */; };
 		7D32BD832017085300E6DC0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D32BD822017085300E6DC0F /* Assets.xcassets */; };
 		7D32BD862017085300E6DC0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D32BD842017085300E6DC0F /* LaunchScreen.storyboard */; };
 		7D32BD912017085300E6DC0F /* CareemAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD902017085300E6DC0F /* CareemAssignmentTests.swift */; };
+		7D32BD9D201722B300E6DC0F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD9C201722B300E6DC0F /* Movie.swift */; };
+		7D32BDA5201727B100E6DC0F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D32BDA4201727B100E6DC0F /* Alamofire.framework */; };
+		7D32BDA7201727FC00E6DC0F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D32BDA6201727FC00E6DC0F /* SDWebImage.framework */; };
+		7D32BDA92017280000E6DC0F /* UIScrollView_InfiniteScroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D32BDA82017280000E6DC0F /* UIScrollView_InfiniteScroll.framework */; };
+		7D32BDB1201741EF00E6DC0F /* MovieDBWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDB0201741EF00E6DC0F /* MovieDBWebService.swift */; };
+		7D32BDB42017437000E6DC0F /* MovieDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDB32017437000E6DC0F /* MovieDBService.swift */; };
+		7D32BDB62017472D00E6DC0F /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDB52017472D00E6DC0F /* SearchResponse.swift */; };
+		7D32BDB820174B9900E6DC0F /* SearchMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */; };
+		7D32BDBB20174D9700E6DC0F /* MovieResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */; };
+		7D32BDBD20174E2800E6DC0F /* MovieResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,15 +38,24 @@
 /* Begin PBXFileReference section */
 		7D32BD752017085300E6DC0F /* CareemAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32BD782017085300E6DC0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7D32BD7A2017085300E6DC0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7D32BD7D2017085300E6DC0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7D32BD802017085300E6DC0F /* CareemAssignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CareemAssignment.xcdatamodel; sourceTree = "<group>"; };
+		7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewController.swift; sourceTree = "<group>"; };
+		7D32BD7D2017085300E6DC0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchMoviesViewController.storyboard; sourceTree = "<group>"; };
 		7D32BD822017085300E6DC0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D32BD852017085300E6DC0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D32BD872017085300E6DC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D32BD8C2017085300E6DC0F /* CareemAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareemAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32BD902017085300E6DC0F /* CareemAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareemAssignmentTests.swift; sourceTree = "<group>"; };
 		7D32BD922017085300E6DC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D32BD9C201722B300E6DC0F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7D32BDA4201727B100E6DC0F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		7D32BDA6201727FC00E6DC0F /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		7D32BDA82017280000E6DC0F /* UIScrollView_InfiniteScroll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIScrollView_InfiniteScroll.framework; path = Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework; sourceTree = "<group>"; };
+		7D32BDB0201741EF00E6DC0F /* MovieDBWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBWebService.swift; sourceTree = "<group>"; };
+		7D32BDB32017437000E6DC0F /* MovieDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBService.swift; sourceTree = "<group>"; };
+		7D32BDB52017472D00E6DC0F /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewModel.swift; sourceTree = "<group>"; };
+		7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultCell.swift; sourceTree = "<group>"; };
+		7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D32BDA5201727B100E6DC0F /* Alamofire.framework in Frameworks */,
+				7D32BDA7201727FC00E6DC0F /* SDWebImage.framework in Frameworks */,
+				7D32BDA92017280000E6DC0F /* UIScrollView_InfiniteScroll.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +85,7 @@
 				7D32BD772017085300E6DC0F /* CareemAssignment */,
 				7D32BD8F2017085300E6DC0F /* CareemAssignmentTests */,
 				7D32BD762017085300E6DC0F /* Products */,
+				7D32BDA3201727B100E6DC0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +101,15 @@
 		7D32BD772017085300E6DC0F /* CareemAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				7D32BDB22017435C00E6DC0F /* Service */,
+				7D32BDA02017257400E6DC0F /* Network */,
+				7D32BD9B2017209F00E6DC0F /* Models */,
+				7D32BD9E2017252C00E6DC0F /* ViewModels */,
+				7D32BD9F2017253400E6DC0F /* Views */,
 				7D32BD782017085300E6DC0F /* AppDelegate.swift */,
-				7D32BD7A2017085300E6DC0F /* ViewController.swift */,
-				7D32BD7C2017085300E6DC0F /* Main.storyboard */,
 				7D32BD822017085300E6DC0F /* Assets.xcassets */,
 				7D32BD842017085300E6DC0F /* LaunchScreen.storyboard */,
 				7D32BD872017085300E6DC0F /* Info.plist */,
-				7D32BD7F2017085300E6DC0F /* CareemAssignment.xcdatamodeld */,
 			);
 			path = CareemAssignment;
 			sourceTree = "<group>";
@@ -99,6 +123,68 @@
 			path = CareemAssignmentTests;
 			sourceTree = "<group>";
 		};
+		7D32BD9B2017209F00E6DC0F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BD9C201722B300E6DC0F /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7D32BD9E2017252C00E6DC0F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */,
+				7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7D32BD9F2017253400E6DC0F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BDB920174D7C00E6DC0F /* Cells */,
+				7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */,
+				7D32BD7C2017085300E6DC0F /* SearchMoviesViewController.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7D32BDA02017257400E6DC0F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BDB0201741EF00E6DC0F /* MovieDBWebService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7D32BDA3201727B100E6DC0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BDA4201727B100E6DC0F /* Alamofire.framework */,
+				7D32BDA6201727FC00E6DC0F /* SDWebImage.framework */,
+				7D32BDA82017280000E6DC0F /* UIScrollView_InfiniteScroll.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D32BDB22017435C00E6DC0F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BDB32017437000E6DC0F /* MovieDBService.swift */,
+				7D32BDB52017472D00E6DC0F /* SearchResponse.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7D32BDB920174D7C00E6DC0F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,6 +195,7 @@
 				7D32BD712017085300E6DC0F /* Sources */,
 				7D32BD722017085300E6DC0F /* Frameworks */,
 				7D32BD732017085300E6DC0F /* Resources */,
+				7D32BDAA201738EA00E6DC0F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -184,7 +271,7 @@
 			files = (
 				7D32BD862017085300E6DC0F /* LaunchScreen.storyboard in Resources */,
 				7D32BD832017085300E6DC0F /* Assets.xcassets in Resources */,
-				7D32BD7E2017085300E6DC0F /* Main.storyboard in Resources */,
+				7D32BD7E2017085300E6DC0F /* SearchMoviesViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,14 +284,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7D32BDAA201738EA00E6DC0F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/UIScrollView_InfiniteScroll.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7D32BD712017085300E6DC0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D32BD7B2017085300E6DC0F /* ViewController.swift in Sources */,
-				7D32BD812017085300E6DC0F /* CareemAssignment.xcdatamodeld in Sources */,
+				7D32BDBD20174E2800E6DC0F /* MovieResultViewModel.swift in Sources */,
+				7D32BD7B2017085300E6DC0F /* SearchMoviesViewController.swift in Sources */,
+				7D32BD9D201722B300E6DC0F /* Movie.swift in Sources */,
+				7D32BDB820174B9900E6DC0F /* SearchMoviesViewModel.swift in Sources */,
 				7D32BD792017085300E6DC0F /* AppDelegate.swift in Sources */,
+				7D32BDB62017472D00E6DC0F /* SearchResponse.swift in Sources */,
+				7D32BDB42017437000E6DC0F /* MovieDBService.swift in Sources */,
+				7D32BDB1201741EF00E6DC0F /* MovieDBWebService.swift in Sources */,
+				7D32BDBB20174D9700E6DC0F /* MovieResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,12 +339,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7D32BD7C2017085300E6DC0F /* Main.storyboard */ = {
+		7D32BD7C2017085300E6DC0F /* SearchMoviesViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7D32BD7D2017085300E6DC0F /* Base */,
 			);
-			name = Main.storyboard;
+			name = SearchMoviesViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		7D32BD842017085300E6DC0F /* LaunchScreen.storyboard */ = {
@@ -358,12 +470,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CareemAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vend.CareemAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -372,12 +489,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CareemAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vend.CareemAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -444,19 +566,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7D32BD7F2017085300E6DC0F /* CareemAssignment.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7D32BD802017085300E6DC0F /* CareemAssignment.xcdatamodel */,
-			);
-			currentVersion = 7D32BD802017085300E6DC0F /* CareemAssignment.xcdatamodel */;
-			path = CareemAssignment.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7D32BD6D2017085300E6DC0F /* Project object */;
 }

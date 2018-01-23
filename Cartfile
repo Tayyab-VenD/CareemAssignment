@@ -1,0 +1,3 @@
+github "rs/SDWebImage" ~> 4.2
+github "Alamofire/Alamofire" ~> 4.6
+github "pronebird/UIScrollView-InfiniteScroll" ~> 1.0
