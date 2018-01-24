@@ -13,10 +13,13 @@ class SearchMoviesViewModel {
     private var service: MovieDBService
 
     private var searchQuery: String = ""
-    private var currentPage: Int = -1
+    private var currentPage: Int = 0
     private var totalPages: Int = 0
 
     private(set) var searchResults: [Movie] = [Movie]()
+    var hasMoreResults: Bool {
+        return currentPage < totalPages
+    }
 
     private var observer: ((_ event: Event) -> Void)?
 
@@ -48,7 +51,7 @@ class SearchMoviesViewModel {
         searchMovies(query: query, page: 1)
     }
 
-    func loadMore() {
+    func loadMoreResults() {
         searchMovies(query: searchQuery, page: currentPage + 1)
     }
 }

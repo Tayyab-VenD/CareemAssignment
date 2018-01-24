@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 class SearchMoviesViewController: UIViewController {
 
@@ -17,10 +18,18 @@ class SearchMoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Configure infinite scrolling.
+        tableView.addInfiniteScroll { (tableView) in
+            self.viewModel.loadMoreResults()
+        }
+        tableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
+            return self.viewModel.hasMoreResults
+        }
+
         viewModel.on { (event) in
             switch event {
             case .didUpdateResults:
-                self.tableView.reloadData()
+                self.displayResults()
             case .didReceiveError(_):
                 break
             }
@@ -30,6 +39,11 @@ class SearchMoviesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    private func displayResults() {
+        tableView.reloadData()
+        tableView.finishInfiniteScroll()
     }
 }
 
