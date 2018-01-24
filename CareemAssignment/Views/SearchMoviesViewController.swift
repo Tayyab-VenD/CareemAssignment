@@ -42,7 +42,7 @@ extension SearchMoviesViewController : UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = viewModel.searchResults[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieResultCell", for: indexPath) as! MovieResultCell
-        cell.configure(with: MovieResultViewModel(item))
+        cell.configure(with: MovieResultViewModel(service: MovieDBWebService.standard, movie: item))
 
         return cell
     }

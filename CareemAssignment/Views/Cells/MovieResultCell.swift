@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 import UIKit
 
 class MovieResultCell : UITableViewCell {
@@ -17,6 +18,7 @@ class MovieResultCell : UITableViewCell {
     @IBOutlet private weak var overviewLabel: UILabel!
 
     func configure(with viewModel: MovieResultViewModel) {
+        posterImageView.sd_setImage(with: viewModel.posterURL)
         nameLabel.text = viewModel.title
         releaseDateLabel.text = viewModel.releaseDate
         overviewLabel.text = viewModel.overview

@@ -10,14 +10,16 @@ import Foundation
 
 class MovieResultViewModel {
 
+    private let service: MovieDBService
     private let movie: Movie
 
-    init(_ movie: Movie) {
+    init(service: MovieDBService, movie: Movie) {
+        self.service = service
         self.movie = movie
     }
 
-    var posterURL: String {
-        return movie.posterPath
+    var posterURL: URL? {
+        return service.posterURL(from: movie.posterPath, with: .w185)
     }
 
     var title: String {

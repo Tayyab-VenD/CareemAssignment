@@ -14,6 +14,7 @@ class MovieDBWebService : MovieDBService {
     static let standard = MovieDBWebService()
 
     private let baseURL = URL(string: "http://api.themoviedb.org/3")!
+    private let imageURL = URL(string: "http://image.tmdb.org/t/p")!
     private let apiKey = "2696829a81b1b5827d515ff121700838"
 
     private let decoder = JSONDecoder()
@@ -52,5 +53,10 @@ class MovieDBWebService : MovieDBService {
             ]
         )
         handle(request, type: SearchResponse.self, completion: completion)
+    }
+
+    // MARK: - Image URL Building
+    func posterURL(from imagePath: String, with posterSize: PosterSize) -> URL? {
+        return imageURL.appendingPathComponent("/\(posterSize.rawValue)/\(imagePath)")
     }
 }

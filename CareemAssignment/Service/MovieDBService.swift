@@ -13,6 +13,14 @@ enum Result<T> {
     case failure(Error)
 }
 
+enum PosterSize : String {
+    case w92
+    case w185
+    case w500
+    case w780
+}
+
 protocol MovieDBService {
     func searchMovies(query: String, page: Int, completion: @escaping (_ result: Result<SearchResponse>) -> Void)
+    func posterURL(from imagePath: String, with posterSize: PosterSize) -> URL?
 }
