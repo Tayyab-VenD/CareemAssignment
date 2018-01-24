@@ -29,6 +29,11 @@ class MovieResultViewModel {
     }
 
     var releaseDate: String {
-        return movie.releaseDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+
+        return formatter.string(from: movie.releaseDate)
     }
 }

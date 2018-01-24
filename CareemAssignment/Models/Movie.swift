@@ -61,7 +61,7 @@ struct Movie : Codable {
     var id: Int64
     var overview: String
     var posterPath: String
-    var releaseDate: String
+    var releaseDate: Date
     var title: String
 
     private enum CodingKeys: String, CodingKey {

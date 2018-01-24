@@ -18,6 +18,15 @@ class MovieDBWebService : MovieDBService {
 
     private let decoder = JSONDecoder()
 
+    init() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+
+        decoder.dateDecodingStrategy = .formatted(formatter)
+    }
+
     private func handle<T : Decodable>(_ request: Alamofire.DataRequest, type: T.Type,
                                        completion: @escaping (_ result: Result<T>) -> Void) {
         request.response { (response) in
