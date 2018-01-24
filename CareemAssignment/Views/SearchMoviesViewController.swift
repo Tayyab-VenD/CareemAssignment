@@ -28,10 +28,12 @@ class SearchMoviesViewController: UIViewController {
 
         viewModel.on { (event) in
             switch event {
+            case .noResultFound:
+                self.showOKAlert(title: "", message: "There are no movies that matched your query.")
             case .didUpdateResults:
                 self.displayResults()
             case .didReceiveError(_):
-                break
+                self.showNetworkError()
             }
         }
     }

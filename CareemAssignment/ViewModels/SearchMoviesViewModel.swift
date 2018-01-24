@@ -31,15 +31,19 @@ class SearchMoviesViewModel {
         service.searchMovies(query: query, page: page) { (result) in
             switch result {
             case .success(let value):
-                self.searchQuery = query
-                self.currentPage = value.page
-                self.totalPages = value.totalPages
+                if page == 1 && value.results.count == 0 {
+                    self.observer?(.noResultFound)
+                } else {
+                    self.searchQuery = query
+                    self.currentPage = value.page
+                    self.totalPages = value.totalPages
 
-                if (query != self.searchQuery || page == 1) {
-                    self.searchResults.removeAll()
+                    if (page == 1) {
+                        self.searchResults.removeAll()
+                    }
+                    self.searchResults.append(contentsOf: value.results)
+                    self.observer?(.didUpdateResults)
                 }
-                self.searchResults.append(contentsOf: value.results)
-                self.observer?(.didUpdateResults)
 
             case .failure(let error):
                 self.observer?(.didReceiveError(error))
@@ -59,6 +63,7 @@ class SearchMoviesViewModel {
 extension SearchMoviesViewModel {
 
     enum Event {
+        case noResultFound
         case didReceiveError(Error)
         case didUpdateResults
     }
