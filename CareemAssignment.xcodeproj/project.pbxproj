@@ -23,6 +23,7 @@
 		7D32BDB820174B9900E6DC0F /* SearchMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */; };
 		7D32BDBB20174D9700E6DC0F /* MovieResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */; };
 		7D32BDBD20174E2800E6DC0F /* MovieResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */; };
+		7D389EB3201889540031AF30 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EB2201889540031AF30 /* UIViewController+Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewModel.swift; sourceTree = "<group>"; };
 		7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultCell.swift; sourceTree = "<group>"; };
 		7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultViewModel.swift; sourceTree = "<group>"; };
+		7D389EB2201889540031AF30 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		7D32BD772017085300E6DC0F /* CareemAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				7D389EB12018893A0031AF30 /* Extensions */,
 				7D32BDB22017435C00E6DC0F /* Service */,
 				7D32BDA02017257400E6DC0F /* Network */,
 				7D32BD9B2017209F00E6DC0F /* Models */,
@@ -183,6 +186,14 @@
 				7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7D389EB12018893A0031AF30 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7D389EB2201889540031AF30 /* UIViewController+Alerts.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +322,7 @@
 				7D32BDBD20174E2800E6DC0F /* MovieResultViewModel.swift in Sources */,
 				7D32BD7B2017085300E6DC0F /* SearchMoviesViewController.swift in Sources */,
 				7D32BD9D201722B300E6DC0F /* Movie.swift in Sources */,
+				7D389EB3201889540031AF30 /* UIViewController+Alerts.swift in Sources */,
 				7D32BDB820174B9900E6DC0F /* SearchMoviesViewModel.swift in Sources */,
 				7D32BD792017085300E6DC0F /* AppDelegate.swift in Sources */,
 				7D32BDB62017472D00E6DC0F /* SearchResponse.swift in Sources */,
