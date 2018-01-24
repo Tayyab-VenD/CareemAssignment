@@ -19,7 +19,11 @@ class MovieResultViewModel {
     }
 
     var posterURL: URL? {
-        return service.posterURL(from: movie.posterPath, with: .w185)
+        if let path = movie.posterPath {
+            return service.posterURL(from: path, with: .w185)
+        }
+
+        return nil
     }
 
     var title: String {
@@ -27,15 +31,19 @@ class MovieResultViewModel {
     }
 
     var overview: String {
-        return movie.overview
+        return movie.overview ?? ""
     }
 
     var releaseDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, yyyy"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        if let releaseDate = movie.releaseDate {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM d, yyyy"
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+            formatter.locale = Locale(identifier: "en_US_POSIX")
 
-        return formatter.string(from: movie.releaseDate)
+            return formatter.string(from: releaseDate)
+        }
+
+        return ""
     }
 }

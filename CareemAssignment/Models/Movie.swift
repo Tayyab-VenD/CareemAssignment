@@ -57,11 +57,11 @@ import Foundation
   "vote_count": 3439
 }
 */
-struct Movie : Codable {
+struct Movie {
     var id: Int64
-    var overview: String
-    var posterPath: String
-    var releaseDate: Date
+    var overview: String?
+    var posterPath: String?
+    var releaseDate: Date?
     var title: String
 
     private enum CodingKeys: String, CodingKey {
@@ -70,5 +70,21 @@ struct Movie : Codable {
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title
+    }
+}
+
+extension Movie : Decodable {
+    init(from decoder: Decoder) throws {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(Int64.self, forKey: .id)
+        overview = try values.decode(String?.self, forKey: .overview)
+        posterPath = try values.decode(String?.self, forKey: .posterPath)
+        releaseDate = formatter.date(from: try values.decode(String.self, forKey: .releaseDate))
+        title = try values.decode(String.self, forKey: .title)
     }
 }
