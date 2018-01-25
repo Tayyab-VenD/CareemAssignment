@@ -128,15 +128,52 @@
                                     <outlet property="delegate" destination="XNr-DP-beq" id="66y-5g-ULX"/>
                                 </connections>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r63-lS-HmJ">
+                                <rect key="frame" x="0.0" y="81" width="375" height="586"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestionCell" id="T9t-dM-tOh">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9t-dM-tOh" id="qVr-2a-YQH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggestion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i4-y4-QdO">
+                                                    <rect key="frame" x="16" y="12" width="343" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="7i4-y4-QdO" secondAttribute="trailing" constant="16" id="Hbe-gl-zYd"/>
+                                                <constraint firstItem="7i4-y4-QdO" firstAttribute="top" secondItem="qVr-2a-YQH" secondAttribute="top" constant="12" id="Xrm-e7-rUG"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7i4-y4-QdO" secondAttribute="bottom" priority="999" constant="12" id="eaM-NW-QNq"/>
+                                                <constraint firstItem="7i4-y4-QdO" firstAttribute="leading" secondItem="qVr-2a-YQH" secondAttribute="leading" constant="16" id="kvM-hY-xcx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XNr-DP-beq" id="INB-rM-BDG"/>
+                                    <outlet property="delegate" destination="XNr-DP-beq" id="cyN-EZ-Gia"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="r63-lS-HmJ" firstAttribute="top" secondItem="jTY-LS-cHx" secondAttribute="bottom" id="Bn4-pQ-nVY"/>
                             <constraint firstAttribute="trailing" secondItem="jTY-LS-cHx" secondAttribute="trailing" id="Oou-uA-c5R"/>
+                            <constraint firstAttribute="trailing" secondItem="r63-lS-HmJ" secondAttribute="trailing" id="RRB-p8-gZF"/>
                             <constraint firstItem="jTY-LS-cHx" firstAttribute="leading" secondItem="f4p-hE-UcV" secondAttribute="leading" id="U1R-y0-8hZ"/>
                             <constraint firstItem="EeG-ez-h0e" firstAttribute="leading" secondItem="f4p-hE-UcV" secondAttribute="leading" id="Wct-wH-nj5"/>
                             <constraint firstAttribute="bottom" secondItem="EeG-ez-h0e" secondAttribute="bottom" id="X7u-0f-MRE"/>
                             <constraint firstItem="EeG-ez-h0e" firstAttribute="top" secondItem="jTY-LS-cHx" secondAttribute="bottom" id="oKb-LN-axO"/>
+                            <constraint firstItem="r63-lS-HmJ" firstAttribute="leading" secondItem="f4p-hE-UcV" secondAttribute="leading" id="oKv-Vj-gDu"/>
                             <constraint firstItem="jTY-LS-cHx" firstAttribute="top" secondItem="f4p-hE-UcV" secondAttribute="top" id="pU3-74-kiR"/>
+                            <constraint firstAttribute="bottom" secondItem="r63-lS-HmJ" secondAttribute="bottom" id="qcJ-oD-hGy"/>
                             <constraint firstAttribute="trailing" secondItem="EeG-ez-h0e" secondAttribute="trailing" id="xxh-mc-9IP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bsD-pQ-NcF"/>
@@ -144,6 +181,8 @@
                     <navigationItem key="navigationItem" id="hZi-sg-PkY"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="searchField" destination="Yi3-rq-FLH" id="vck-xd-GJQ"/>
+                        <outlet property="suggestionsTableView" destination="r63-lS-HmJ" id="A5b-VL-TgA"/>
                         <outlet property="tableView" destination="EeG-ez-h0e" id="uid-6Y-HVU"/>
                     </connections>
                 </viewController>

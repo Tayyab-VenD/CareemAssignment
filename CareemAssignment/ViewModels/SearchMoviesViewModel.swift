@@ -11,20 +11,24 @@ import Foundation
 class SearchMoviesViewModel {
 
     private var service: MovieDBService
+    private var persistence: Persistence
 
     private var searchQuery: String = ""
     private var currentPage: Int = 0
     private var totalPages: Int = 0
 
-    private(set) var searchResults: [Movie] = [Movie]()
+    private(set) var suggestions = [Suggestion]()
+    private(set) var searchResults = [Movie]()
+
     var hasMoreResults: Bool {
         return currentPage < totalPages
     }
 
     private var observer: ((_ event: Event) -> Void)?
 
-    init(service: MovieDBService) {
+    init(service: MovieDBService, persistence: Persistence) {
         self.service = service
+        self.persistence = persistence
     }
 
     private func searchMovies(query: String, page: Int) {
@@ -34,6 +38,9 @@ class SearchMoviesViewModel {
                 if page == 1 && value.results.count == 0 {
                     self.observer?(.noResultFound)
                 } else {
+                    // Save the query as suggestion.
+                    self.persistence.saveSuggestion(Suggestion(text: query))
+
                     self.searchQuery = query
                     self.currentPage = value.page
                     self.totalPages = value.totalPages
@@ -51,6 +58,13 @@ class SearchMoviesViewModel {
         }
     }
 
+    func refreshSuggestions() {
+        persistence.fetchRecentSuggestions { (suggestions) in
+            self.suggestions = suggestions
+            self.observer?(.suggestionsRefreshed)
+        }
+    }
+
     func searchMovies(query: String) {
         searchMovies(query: query, page: 1)
     }
@@ -63,6 +77,7 @@ class SearchMoviesViewModel {
 extension SearchMoviesViewModel {
 
     enum Event {
+        case suggestionsRefreshed
         case noResultFound
         case didReceiveError(Error)
         case didUpdateResults
