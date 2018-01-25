@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2DD3D82019C92100A23F40 /* EventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3D72019C92100A23F40 /* EventObservable.swift */; };
 		7D32BD792017085300E6DC0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD782017085300E6DC0F /* AppDelegate.swift */; };
 		7D32BD7B2017085300E6DC0F /* SearchMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */; };
 		7D32BD7E2017085300E6DC0F /* SearchMoviesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D32BD7C2017085300E6DC0F /* SearchMoviesViewController.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D2DD3D72019C92100A23F40 /* EventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObservable.swift; sourceTree = "<group>"; };
 		7D32BD752017085300E6DC0F /* CareemAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32BD782017085300E6DC0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		7D32BD9E2017252C00E6DC0F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7D2DD3D72019C92100A23F40 /* EventObservable.swift */,
 				7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */,
 				7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */,
 			);
@@ -365,6 +368,7 @@
 				7D32BDB820174B9900E6DC0F /* SearchMoviesViewModel.swift in Sources */,
 				7D32BD792017085300E6DC0F /* AppDelegate.swift in Sources */,
 				7D32BDB62017472D00E6DC0F /* SearchResponse.swift in Sources */,
+				7D2DD3D82019C92100A23F40 /* EventObservable.swift in Sources */,
 				7D32BDB42017437000E6DC0F /* MovieDBService.swift in Sources */,
 				7D32BDB1201741EF00E6DC0F /* MovieDBWebService.swift in Sources */,
 				7D389EBA201897A40031AF30 /* CoreDataPersistence.swift in Sources */,

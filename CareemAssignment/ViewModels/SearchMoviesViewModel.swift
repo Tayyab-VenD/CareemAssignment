@@ -10,8 +10,8 @@ import Foundation
 
 class SearchMoviesViewModel {
 
-    private var service: MovieDBService
-    private var persistence: Persistence
+    var service: MovieDBService
+    var persistence: Persistence
 
     private var searchQuery: String = ""
     private var currentPage: Int = 0
@@ -36,24 +36,26 @@ class SearchMoviesViewModel {
             switch result {
             case .success(let value):
                 if page == 1 && value.results.count == 0 {
-                    self.observer?(.noResultFound)
+                    self.notify(.noResultFound)
                 } else {
                     // Save the query as suggestion.
                     self.persistence.saveSuggestion(Suggestion(text: query))
 
+                    // Save the response for paging.
                     self.searchQuery = query
                     self.currentPage = value.page
                     self.totalPages = value.totalPages
 
                     if (page == 1) {
+                        // Clear previous results if it is a new query.
                         self.searchResults.removeAll()
                     }
                     self.searchResults.append(contentsOf: value.results)
-                    self.observer?(.didUpdateResults)
+                    self.notify(.resultsUpdated)
                 }
 
             case .failure(let error):
-                self.observer?(.didReceiveError(error))
+                self.notify(.apiError(error))
             }
         }
     }
@@ -61,7 +63,7 @@ class SearchMoviesViewModel {
     func refreshSuggestions() {
         persistence.fetchRecentSuggestions { (suggestions) in
             self.suggestions = suggestions
-            self.observer?(.suggestionsRefreshed)
+            self.notify(.suggestionsRefreshed)
         }
     }
 
@@ -70,21 +72,29 @@ class SearchMoviesViewModel {
     }
 
     func loadMoreResults() {
+        // Load next page of recent search query.
         searchMovies(query: searchQuery, page: currentPage + 1)
     }
 }
 
-extension SearchMoviesViewModel {
+// MARK: - EventObservable
+extension SearchMoviesViewModel : EventObservable {
 
     enum Event {
         case suggestionsRefreshed
         case noResultFound
-        case didReceiveError(Error)
-        case didUpdateResults
+        case resultsUpdated
+        case apiError(Error)
     }
 
     func on(_ observer: @escaping (Event) -> Void) {
+        // Register the observer.
         self.observer = observer
+    }
+
+    private func notify(_ event: Event) {
+        // Notify the event to observer.
+        self.observer?(event)
     }
 }
 
