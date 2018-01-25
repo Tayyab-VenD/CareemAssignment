@@ -3,11 +3,6 @@
     <entity name="SuggestionEntity" representedClassName=".SuggestionEntity" syncable="YES">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" attributeType="String" syncable="YES"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="text"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="SuggestionEntity" positionX="-63" positionY="-18" width="128" height="75"/>

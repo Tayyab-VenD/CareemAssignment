@@ -18,28 +18,32 @@ class CoreDataPersistence : Persistence {
     }
 
     func saveSuggestion(_ suggestion: Suggestion) {
-        stack.performBackgroundTask { (context) in
-            do {
-                let entity = NSEntityDescription.insertNewObject(
-                    forEntityName: SuggestionEntity.className,
-                    into: context
-                ) as! SuggestionEntity
+        let request = NSFetchRequest<SuggestionEntity>(entityName: SuggestionEntity.className)
+        request.predicate = NSPredicate(format:"\(#keyPath(SuggestionEntity.text)) = %@", suggestion.text)
 
-                entity.text = suggestion.text
-                entity.createdAt = Date() as NSDate
+        // Check if this suggestion already exists.
+        var entity = (try? stack.viewContext.fetch(request))?.first
+        if entity == nil {
+            // Create a new entity if it does not.
+            entity = NSEntityDescription.insertNewObject(forEntityName: SuggestionEntity.className, into: stack.viewContext) as? SuggestionEntity
+        }
 
-                try context.save()
-            } catch {
-            }
+        // Populate the entity.
+        entity!.text = suggestion.text
+        entity!.createdAt = NSDate()
+
+        do {
+            try stack.viewContext.save()
+        } catch {
         }
     }
 
     func fetchRecentSuggestions(completion: @escaping (_ : [Suggestion]) -> Void) {
-        do {
-            let request = NSFetchRequest<SuggestionEntity>(entityName: SuggestionEntity.className)
-            request.fetchLimit = 10
-            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(SuggestionEntity.createdAt), ascending: false)]
+        let request = NSFetchRequest<SuggestionEntity>(entityName: SuggestionEntity.className)
+        request.fetchLimit = 10
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(SuggestionEntity.createdAt), ascending: false)]
 
+        do {
             let entities = try stack.viewContext.fetch(request)
             let suggestions = entities.map({ (entity) -> Suggestion in
                 Suggestion(text: entity.text!)
