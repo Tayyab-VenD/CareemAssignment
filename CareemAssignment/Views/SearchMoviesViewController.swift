@@ -11,11 +11,11 @@ import UIScrollView_InfiniteScroll
 
 class SearchMoviesViewController: UIViewController {
 
-    private let viewModel = SearchMoviesViewModel(service: MovieDBWebService.standard, persistence: CoreDataPersistence(CoreDataStack(name: "PersistenceModel")))
-
     @IBOutlet private weak var searchField: UITextField!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var suggestionsTableView: UITableView!
+
+    var viewModel: SearchMoviesViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

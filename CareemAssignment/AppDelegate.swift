@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let service = MovieDBWebService()
+        let persistence = CoreDataPersistence(CoreDataStack(name: "PersistenceModel"))
+        let viewController = window!.rootViewController as! SearchMoviesViewController
+        viewController.viewModel = SearchMoviesViewModel(service: service, persistence: persistence)
+
         return true
     }
 
