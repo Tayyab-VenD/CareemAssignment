@@ -11,6 +11,11 @@
 		7D2DD3DA2019E1CB00A23F40 /* InMemoryCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3D92019E1CB00A23F40 /* InMemoryCoreDataStack.swift */; };
 		7D2DD3DC2019E33900A23F40 /* CoreDataPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3DB2019E33900A23F40 /* CoreDataPersistenceTests.swift */; };
 		7D2DD3DF2019F21900A23F40 /* Suggestion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3DE2019F21900A23F40 /* Suggestion+Equatable.swift */; };
+		7D2DD46E201A16F800A23F40 /* Mockingjay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D2DD463201A156300A23F40 /* Mockingjay.framework */; };
+		7D2DD471201A174400A23F40 /* MovieDBWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD470201A174400A23F40 /* MovieDBWebServiceTests.swift */; };
+		7D2DD472201A1A3A00A23F40 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D32BDA4201727B100E6DC0F /* Alamofire.framework */; };
+		7D2DD474201A1BE500A23F40 /* Movie+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD473201A1BE500A23F40 /* Movie+Equatable.swift */; };
+		7D2DD476201A1E3900A23F40 /* SearchResponse+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD475201A1E3900A23F40 /* SearchResponse+Equatable.swift */; };
 		7D32BD792017085300E6DC0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD782017085300E6DC0F /* AppDelegate.swift */; };
 		7D32BD7B2017085300E6DC0F /* SearchMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */; };
 		7D32BD7E2017085300E6DC0F /* SearchMoviesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D32BD7C2017085300E6DC0F /* SearchMoviesViewController.storyboard */; };
@@ -39,6 +44,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7D2DD462201A156300A23F40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D2DD45E201A156300A23F40 /* Mockingjay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2746CDBF1A702F7800719B66;
+			remoteInfo = Mockingjay;
+		};
+		7D2DD46B201A16EC00A23F40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D2DD45E201A156300A23F40 /* Mockingjay.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2746CDBE1A702F7800719B66;
+			remoteInfo = Mockingjay;
+		};
 		7D32BD8D2017085300E6DC0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7D32BD6D2017085300E6DC0F /* Project object */;
@@ -53,6 +72,10 @@
 		7D2DD3D92019E1CB00A23F40 /* InMemoryCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCoreDataStack.swift; sourceTree = "<group>"; };
 		7D2DD3DB2019E33900A23F40 /* CoreDataPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceTests.swift; sourceTree = "<group>"; };
 		7D2DD3DE2019F21900A23F40 /* Suggestion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Suggestion+Equatable.swift"; sourceTree = "<group>"; };
+		7D2DD45E201A156300A23F40 /* Mockingjay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mockingjay.xcodeproj; path = Frameworks/Mockingjay/Mockingjay.xcodeproj; sourceTree = "<group>"; };
+		7D2DD470201A174400A23F40 /* MovieDBWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBWebServiceTests.swift; sourceTree = "<group>"; };
+		7D2DD473201A1BE500A23F40 /* Movie+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Equatable.swift"; sourceTree = "<group>"; };
+		7D2DD475201A1E3900A23F40 /* SearchResponse+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResponse+Equatable.swift"; sourceTree = "<group>"; };
 		7D32BD752017085300E6DC0F /* CareemAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32BD782017085300E6DC0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D32BD7A2017085300E6DC0F /* SearchMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D2DD472201A1A3A00A23F40 /* Alamofire.framework in Frameworks */,
+				7D2DD46E201A16F800A23F40 /* Mockingjay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,9 +142,27 @@
 		7D2DD3E1201A02C700A23F40 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7D2DD473201A1BE500A23F40 /* Movie+Equatable.swift */,
 				7D2DD3DE2019F21900A23F40 /* Suggestion+Equatable.swift */,
+				7D2DD475201A1E3900A23F40 /* SearchResponse+Equatable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7D2DD45F201A156300A23F40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D2DD463201A156300A23F40 /* Mockingjay.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D2DD46F201A172B00A23F40 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7D2DD470201A174400A23F40 /* MovieDBWebServiceTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		7D32BD6C2017085300E6DC0F = {
@@ -164,6 +207,7 @@
 			children = (
 				7D2DD3E1201A02C700A23F40 /* Extensions */,
 				7D2DD3E02019FF7900A23F40 /* Persistence */,
+				7D2DD46F201A172B00A23F40 /* Network */,
 				7D32BD902017085300E6DC0F /* CareemAssignmentTests.swift */,
 				7D32BD922017085300E6DC0F /* Info.plist */,
 			);
@@ -210,6 +254,7 @@
 		7D32BDA3201727B100E6DC0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D2DD45E201A156300A23F40 /* Mockingjay.xcodeproj */,
 				7D32BDA4201727B100E6DC0F /* Alamofire.framework */,
 				7D32BDA6201727FC00E6DC0F /* SDWebImage.framework */,
 				7D32BDA82017280000E6DC0F /* UIScrollView_InfiniteScroll.framework */,
@@ -288,6 +333,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7D2DD46C201A16EC00A23F40 /* PBXTargetDependency */,
 				7D32BD8E2017085300E6DC0F /* PBXTargetDependency */,
 			);
 			name = CareemAssignmentTests;
@@ -327,6 +373,12 @@
 			mainGroup = 7D32BD6C2017085300E6DC0F;
 			productRefGroup = 7D32BD762017085300E6DC0F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7D2DD45F201A156300A23F40 /* Products */;
+					ProjectRef = 7D2DD45E201A156300A23F40 /* Mockingjay.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7D32BD742017085300E6DC0F /* CareemAssignment */,
@@ -334,6 +386,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7D2DD463201A156300A23F40 /* Mockingjay.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mockingjay.framework;
+			remoteRef = 7D2DD462201A156300A23F40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7D32BD732017085300E6DC0F /* Resources */ = {
@@ -406,15 +468,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D2DD3DC2019E33900A23F40 /* CoreDataPersistenceTests.swift in Sources */,
+				7D2DD474201A1BE500A23F40 /* Movie+Equatable.swift in Sources */,
+				7D2DD476201A1E3900A23F40 /* SearchResponse+Equatable.swift in Sources */,
 				7D2DD3DF2019F21900A23F40 /* Suggestion+Equatable.swift in Sources */,
 				7D32BD912017085300E6DC0F /* CareemAssignmentTests.swift in Sources */,
 				7D2DD3DA2019E1CB00A23F40 /* InMemoryCoreDataStack.swift in Sources */,
+				7D2DD471201A174400A23F40 /* MovieDBWebServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7D2DD46C201A16EC00A23F40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Mockingjay;
+			targetProxy = 7D2DD46B201A16EC00A23F40 /* PBXContainerItemProxy */;
+		};
 		7D32BD8E2017085300E6DC0F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7D32BD742017085300E6DC0F /* CareemAssignment */;
@@ -593,6 +663,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CareemAssignmentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vend.CareemAssignmentTests;
@@ -609,6 +683,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CareemAssignmentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vend.CareemAssignmentTests;
