@@ -6,8 +6,9 @@
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
-import UIKit
+import Alamofire
 import CoreData
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let service = MovieDBWebService()
+        let service = MovieDBWebService(SessionManager.default)
         let persistence = CoreDataPersistence(CoreDataStack(name: "PersistenceModel"))
         let viewController = window!.rootViewController as! SearchMoviesViewController
         viewController.viewModel = SearchMoviesViewModel(service: service, persistence: persistence)

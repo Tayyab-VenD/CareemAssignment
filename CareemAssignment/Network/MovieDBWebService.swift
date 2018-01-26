@@ -11,15 +11,19 @@ import Foundation
 
 class MovieDBWebService : MovieDBService {
 
-    static let standard = MovieDBWebService()
-
     private let baseURL = URL(string: "http://api.themoviedb.org/3")!
     private let imageURL = URL(string: "http://image.tmdb.org/t/p")!
     private let apiKey = "2696829a81b1b5827d515ff121700838"
 
-    private let decoder = JSONDecoder()
+    private let manager: SessionManager
+    private let decoder: JSONDecoder
 
-    private func handle<T : Decodable>(_ request: Alamofire.DataRequest, type: T.Type,
+    init(_ manager: SessionManager) {
+        self.manager = manager
+        self.decoder = JSONDecoder()
+    }
+
+    private func handle<T : Decodable>(_ request: DataRequest, type: T.Type,
                                        completion: @escaping (_ result: Result<T>) -> Void) {
         request.response { (response) in
             guard response.error == nil else {
@@ -37,8 +41,9 @@ class MovieDBWebService : MovieDBService {
     }
 
     // MARK: - Movies Searching
+
     func searchMovies(query: String, page: Int, completion: @escaping (_ result: Result<SearchResponse>) -> Void) {
-        let request = Alamofire.request(
+        let request = manager.request(
             baseURL.appendingPathComponent("/search/movie"),
             method: .get,
             parameters: [
@@ -51,6 +56,7 @@ class MovieDBWebService : MovieDBService {
     }
 
     // MARK: - Image URL Building
+
     func posterURL(from imagePath: String, with posterSize: PosterSize) -> URL? {
         return imageURL.appendingPathComponent("/\(posterSize.rawValue)/\(imagePath)")
     }
