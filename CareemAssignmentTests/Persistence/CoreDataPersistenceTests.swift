@@ -13,30 +13,34 @@ import XCTest
 
 class CoreDataPersistenceTests: XCTestCase {
 
-    let coreDataStack = InMemoryCoreDataStack(name: "PersistenceModel")
+    var persistence: CoreDataPersistence!
+
+    override func setUp() {
+        super.setUp()
+
+        let coreDataStack = InMemoryCoreDataStack(name: "PersistenceModel")
+        persistence = CoreDataPersistence(coreDataStack)
+    }
 
     func testUniqueSuggestion() {
-        // Create a sample suggestion.
         let sample = Suggestion(text: "text")
 
         // Save suggestion thrice.
-        let persistence = CoreDataPersistence(coreDataStack)
-        persistence.saveSuggestion(sample)
-        persistence.saveSuggestion(sample)
-        persistence.saveSuggestion(sample)
-
-        let testExpectation = expectation(description: "Unique suggestion expectation")
-
-        // There should be only one entry.
-        persistence.fetchRecentSuggestions { (suggestions) in
-            XCTAssertEqual(suggestions.count, 1)
-            testExpectation.fulfill()
+        for _ in 1...3 {
+            persistence.saveSuggestion(sample)
         }
+
+        let expectation = self.expectation(description: "Unique suggestion expectation")
+
+        persistence.fetchRecentSuggestions { (suggestions) in
+            XCTAssertEqual(suggestions.count, 1, "The suggestion is not saved with unique constraint")
+            expectation.fulfill()
+        }
+
         waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testSuggestionOrder() {
-        // Create sample suggestions.
         let samples = [
             Suggestion(text: "text1"),
             Suggestion(text: "text2"),
@@ -44,18 +48,17 @@ class CoreDataPersistenceTests: XCTestCase {
         ]
 
         // Save all suggestions.
-        let persistence = CoreDataPersistence(coreDataStack)
-        for s in samples {
-            persistence.saveSuggestion(s)
+        for entry in samples {
+            persistence.saveSuggestion(entry)
         }
 
-        let testExpectation = expectation(description: "Suggestion order expectation")
+        let expectation = self.expectation(description: "Suggestion order expectation")
 
-        // Suggestions should be retrieved in reverse order.
         persistence.fetchRecentSuggestions { (suggestions) in
-            XCTAssertEqual(suggestions, samples.reversed())
-            testExpectation.fulfill()
+            XCTAssertEqual(suggestions, samples.reversed(), "The order of suggestions is not most recent to least recent")
+            expectation.fulfill()
         }
+
         waitForExpectations(timeout: 1, handler: nil)
     }
 }
