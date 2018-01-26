@@ -47,6 +47,53 @@ class SearchMoviesViewController: UIViewController {
         viewModel.refreshSuggestions()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerNotifications()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        unregisterNotifications()
+    }
+
+    // MARK: - Notifications Setup
+
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: Notification.Name.UIKeyboardDidShow, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    private func unregisterNotifications() {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    // MARK: - Keyboard Handling
+
+    @objc private func keyboardWasShown(notification: Notification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+
+        resultsTableView.contentInset.bottom = keyboardFrame.height
+        resultsTableView.scrollIndicatorInsets.bottom = keyboardFrame.height
+
+        suggestionsTableView.contentInset.bottom = keyboardFrame.height
+        suggestionsTableView.scrollIndicatorInsets.bottom = keyboardFrame.height
+    }
+
+    @objc private func keyboardWillBeHidden(notification: Notification) {
+        resultsTableView.contentInset.bottom = 0
+        resultsTableView.scrollIndicatorInsets.bottom = 0
+
+        suggestionsTableView.contentInset.bottom = 0
+        suggestionsTableView.scrollIndicatorInsets.bottom = 0
+    }
+
+    // MARK: - Helper Methods
+
     private func searchMovies(query: String) {
         // Schedule the search request and hide the keybaord.
         viewModel.searchMovies(query: query)
@@ -72,6 +119,7 @@ class SearchMoviesViewController: UIViewController {
 }
 
 // MARK: - UITextFieldDelegate
+
 extension SearchMoviesViewController : UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -89,6 +137,7 @@ extension SearchMoviesViewController : UITextFieldDelegate {
 }
 
 // MARK: - UITableViewDataSource
+
 extension SearchMoviesViewController : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,6 +175,7 @@ extension SearchMoviesViewController : UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
+
 extension SearchMoviesViewController : UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
