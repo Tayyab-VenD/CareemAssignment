@@ -34,7 +34,7 @@ class SearchMoviesViewController: UIViewController {
             case.suggestionsRefreshed:
                 self.displaySuggestions()
             case .noResultFound:
-                self.showOKAlert(title: "", message: "There are no movies that matched your query.")
+                self.showOKAlert(title: nil, message: "There are no movies that matched your query.")
             case .resultsUpdated:
                 self.displayResults()
             case .apiError(_):

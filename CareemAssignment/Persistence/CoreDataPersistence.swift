@@ -34,8 +34,7 @@ class CoreDataPersistence : Persistence {
 
         do {
             try stack.viewContext.save()
-        } catch {
-        }
+        } catch { }
     }
 
     func fetchRecentSuggestions(completion: @escaping (_ : [Suggestion]) -> Void) {

@@ -16,8 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Create default instances.
         let service = MovieDBWebService(SessionManager.default)
         let persistence = CoreDataPersistence(CoreDataStack(name: "PersistenceModel"))
+
+        // Inject view model into the root view controller.
         let viewController = window!.rootViewController as! SearchMoviesViewController
         viewController.viewModel = SearchMoviesViewModel(service: service, persistence: persistence)
 
