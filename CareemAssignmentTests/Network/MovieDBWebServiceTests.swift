@@ -73,7 +73,7 @@ class MovieDBWebServiceTests: XCTestCase {
     }
 
     func testSearchMoviesFailure() {
-        let sample = NSError(domain: "test", code: 0, userInfo: nil)
+        let sample = NSError.stub()
         stub(everything, failure(sample))
 
         let expectation = self.expectation(description: "Search movies failure expectation")

@@ -1,8 +1,8 @@
 //
-//  Movie+Equatable.swift
+//  Movie+Testing.swift
 //  CareemAssignmentTests
 //
-//  Created by Muhammad Tayyab Akram on 25/01/2018.
+//  Created by Muhammad Tayyab Akram on 26/01/2018.
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
@@ -10,9 +10,19 @@ import Foundation
 
 @testable import CareemAssignment
 
-extension Movie: Equatable {
-
+extension Movie {
+    static func stub() -> Movie {
+        return Movie(
+            id: 1,
+            overview: "overview",
+            posterPath: "poster_path",
+            releaseDate: Date(timeIntervalSince1970: 0),
+            title: "title"
+        )
+    }
 }
+
+extension Movie: Equatable { }
 
 public func ==(lhs: Movie, rhs: Movie) -> Bool {
     let areEqual = (

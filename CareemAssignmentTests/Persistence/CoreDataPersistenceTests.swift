@@ -23,7 +23,7 @@ class CoreDataPersistenceTests: XCTestCase {
     }
 
     func testUniqueSuggestion() {
-        let sample = Suggestion(text: "text")
+        let sample = Suggestion.stub()
 
         // Save suggestion thrice.
         for _ in 1...3 {
