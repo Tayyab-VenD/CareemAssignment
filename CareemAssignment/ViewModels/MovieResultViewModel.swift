@@ -44,6 +44,6 @@ class MovieResultViewModel {
             return formatter.string(from: releaseDate)
         }
 
-        return ""
+        return "Unknown"
     }
 }

@@ -183,6 +183,7 @@ extension SearchMoviesViewController : UITableViewDelegate {
 
         if tableView == suggestionsTableView {
             let item = viewModel.suggestions[indexPath.row]
+            searchField.text = item.text
             searchMovies(query: item.text)
         }
     }

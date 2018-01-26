@@ -78,6 +78,7 @@ class SearchMoviesViewModel {
 }
 
 // MARK: - EventObservable
+
 extension SearchMoviesViewModel : EventObservable {
 
     enum Event {
