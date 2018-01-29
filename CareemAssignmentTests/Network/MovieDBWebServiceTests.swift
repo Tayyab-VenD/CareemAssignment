@@ -6,7 +6,6 @@
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
-import Alamofire
 import Foundation
 import Mockingjay
 import XCTest
@@ -19,7 +18,9 @@ class MovieDBWebServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        service = MovieDBWebService(SessionManager.default)
+
+        let client = URLSessionWebClient(URLSession.shared)
+        service = MovieDBWebService(client)
     }
 
     func testSearchMoviesSuccess() {

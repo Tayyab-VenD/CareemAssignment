@@ -6,7 +6,6 @@
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
-import Alamofire
 import CoreData
 import UIKit
 
@@ -17,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Create default instances.
-        let service = MovieDBWebService(SessionManager.default)
+        let client = URLSessionWebClient(URLSession.shared)
+        let service = MovieDBWebService(client)
         let persistence = CoreDataPersistence(CoreDataStack(name: "PersistenceModel"))
 
         // Inject view model into the root view controller.

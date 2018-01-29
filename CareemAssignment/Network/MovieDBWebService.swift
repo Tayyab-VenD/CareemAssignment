@@ -6,7 +6,6 @@
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
-import Alamofire
 import Foundation
 
 class MovieDBWebService : MovieDBService {
@@ -15,17 +14,17 @@ class MovieDBWebService : MovieDBService {
     private let imageURL = URL(string: "http://image.tmdb.org/t/p")!
     private let apiKey = "2696829a81b1b5827d515ff121700838"
 
-    private let manager: SessionManager
+    private let client: WebClient
     private let decoder: JSONDecoder
 
-    init(_ manager: SessionManager) {
-        self.manager = manager
+    init(_ client: WebClient) {
+        self.client = client
         self.decoder = JSONDecoder()
     }
 
-    private func handle<T : Decodable>(_ request: DataRequest, type: T.Type,
-                                       completion: @escaping (_ result: Result<T>) -> Void) {
-        request.response { response in
+    private func execute<T : Decodable>(_ request: WebRequest, type: T.Type,
+                                        completion: @escaping (_ result: Result<T>) -> Void) {
+        client.execute(request: request) { (response) in
             if let error = response.error {
                 completion(.failure(error))
             } else {
@@ -42,16 +41,19 @@ class MovieDBWebService : MovieDBService {
     // MARK: - Movies Searching
 
     func searchMovies(query: String, page: Int, completion: @escaping (_ result: Result<SearchResponse>) -> Void) {
-        let request = manager.request(
-            baseURL.appendingPathComponent("/search/movie"),
+        let request = WebRequest(
             method: .get,
-            parameters: [
-                "api_key": apiKey,
-                "query": query,
-                "page": page.description
-            ]
+            url: URL(
+                base: baseURL,
+                path: "/search/movie",
+                parameters: [
+                    "api_key": apiKey,
+                    "query": query,
+                    "page": page.description
+                ]
+            )!
         )
-        handle(request, type: SearchResponse.self, completion: completion)
+        execute(request, type: SearchResponse.self, completion: completion)
     }
 
     // MARK: - Image URL Building
