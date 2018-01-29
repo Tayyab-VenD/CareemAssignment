@@ -25,17 +25,16 @@ class MovieDBWebService : MovieDBService {
 
     private func handle<T : Decodable>(_ request: DataRequest, type: T.Type,
                                        completion: @escaping (_ result: Result<T>) -> Void) {
-        request.response { (response) in
-            guard response.error == nil else {
-                completion(.failure(response.error!))
-                return
-            }
-
-            do {
-                let result = try self.decoder.decode(type, from: response.data!)
-                completion(.success(result))
-            } catch {
+        request.response { response in
+            if let error = response.error {
                 completion(.failure(error))
+            } else {
+                do {
+                    let result = try self.decoder.decode(type, from: response.data!)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
             }
         }
     }
