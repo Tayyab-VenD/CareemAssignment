@@ -133,7 +133,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestionCell" id="T9t-dM-tOh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestionCell" id="T9t-dM-tOh" customClass="SuggestionCell" customModule="CareemAssignment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9t-dM-tOh" id="qVr-2a-YQH">
@@ -154,6 +154,9 @@
                                                 <constraint firstItem="7i4-y4-QdO" firstAttribute="leading" secondItem="qVr-2a-YQH" secondAttribute="leading" constant="16" id="kvM-hY-xcx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="suggestionLabel" destination="7i4-y4-QdO" id="xH1-oQ-FwN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

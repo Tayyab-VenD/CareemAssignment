@@ -17,10 +17,12 @@ class MovieResultCell : UITableViewCell {
     @IBOutlet private weak var releaseDateLabel: UILabel!
     @IBOutlet private weak var overviewLabel: UILabel!
 
-    func configure(with viewModel: MovieResultViewModel) {
-        posterImageView.sd_setImage(with: viewModel.posterURL)
-        nameLabel.text = viewModel.title
-        releaseDateLabel.text = viewModel.releaseDate
-        overviewLabel.text = viewModel.overview
+    var viewModel: MovieResultViewModel! {
+        didSet {
+            posterImageView.sd_setImage(with: viewModel.posterURL)
+            nameLabel.text = viewModel.title
+            releaseDateLabel.text = viewModel.releaseDate
+            overviewLabel.text = viewModel.overview
+        }
     }
 }

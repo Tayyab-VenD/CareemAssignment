@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0B1E36202086E200214AFC /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E35202086E200214AFC /* SuggestionCell.swift */; };
+		7D0B1E382020875600214AFC /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E372020875600214AFC /* SuggestionViewModel.swift */; };
 		7D2D0A46202036BB0087A838 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A45202036BB0087A838 /* APIConfiguration.swift */; };
 		7D2D0A4820203C100087A838 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A4720203C100087A838 /* ImageManager.swift */; };
 		7D2D0A4C202043D20087A838 /* StubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A4B202043D20087A838 /* StubAPIClient.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D0B1E35202086E200214AFC /* SuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
+		7D0B1E372020875600214AFC /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
 		7D2D0A45202036BB0087A838 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		7D2D0A4720203C100087A838 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		7D2D0A4B202043D20087A838 /* StubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAPIClient.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				7D2DD3D72019C92100A23F40 /* EventObservable.swift */,
 				7D32BDBC20174E2800E6DC0F /* MovieResultViewModel.swift */,
 				7D32BDB720174B9900E6DC0F /* SearchMoviesViewModel.swift */,
+				7D0B1E372020875600214AFC /* SuggestionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				7D32BDBA20174D9700E6DC0F /* MovieResultCell.swift */,
+				7D0B1E35202086E200214AFC /* SuggestionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 			files = (
 				7D32BDBD20174E2800E6DC0F /* MovieResultViewModel.swift in Sources */,
 				7D32BD7B2017085300E6DC0F /* SearchMoviesViewController.swift in Sources */,
+				7D0B1E382020875600214AFC /* SuggestionViewModel.swift in Sources */,
 				7D389ECB2018AC9F0031AF30 /* SuggestionEntity+CoreDataProperties.swift in Sources */,
 				7D32BD9D201722B300E6DC0F /* Movie.swift in Sources */,
 				7D389ED12018ADF20031AF30 /* Suggestion.swift in Sources */,
@@ -453,6 +460,7 @@
 				7D3566BE201F0DC90083F637 /* URL+Query.swift in Sources */,
 				7D2D0A4820203C100087A838 /* ImageManager.swift in Sources */,
 				7D3566BA201F00810083F637 /* APIClient.swift in Sources */,
+				7D0B1E36202086E200214AFC /* SuggestionCell.swift in Sources */,
 				7D3566BC201F01100083F637 /* URLSessionAPIClient.swift in Sources */,
 				7D3566C5201F3B360083F637 /* DateFormatter+Formats.swift in Sources */,
 			);

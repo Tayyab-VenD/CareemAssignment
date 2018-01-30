@@ -161,9 +161,8 @@ extension SearchMoviesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == suggestionsTableView {
             let item = viewModel.suggestions[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestionCell", for: indexPath)
-            let label = cell.viewWithTag(1) as! UILabel
-            label.text = item.text
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestionCell", for: indexPath) as! SuggestionCell
+            cell.viewModel = SuggestionViewModel(item)
 
             return cell
         }
@@ -171,7 +170,7 @@ extension SearchMoviesViewController : UITableViewDataSource {
         if tableView == resultsTableView {
             let item = viewModel.searchResults[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieResultCell", for: indexPath) as! MovieResultCell
-            cell.configure(with: MovieResultViewModel(item, imageManager: imageManager))
+            cell.viewModel = MovieResultViewModel(item, imageManager: imageManager)
 
             return cell
         }
