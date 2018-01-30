@@ -1,15 +1,15 @@
 //
-//  SuggestionRepository.swift
+//  CoreDataSuggestionRepository.swift
 //  CareemAssignment
 //
-//  Created by Muhammad Tayyab Akram on 24/01/2018.
+//  Created by Muhammad Tayyab Akram on 30/01/2018.
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
 import CoreData
 import Foundation
 
-class CoreDataPersistence : Persistence {
+class CoreDataSuggestionRepository : SuggestionRepository {
 
     private let stack: CoreDataStack
 
@@ -17,7 +17,7 @@ class CoreDataPersistence : Persistence {
         self.stack = stack
     }
 
-    func saveSuggestion(_ suggestion: Suggestion) {
+    func save(_ suggestion: Suggestion) {
         let request = NSFetchRequest<SuggestionEntity>(entityName: SuggestionEntity.className)
         request.predicate = NSPredicate(format:"\(#keyPath(SuggestionEntity.text)) = %@", suggestion.text)
 
@@ -37,7 +37,7 @@ class CoreDataPersistence : Persistence {
         } catch { }
     }
 
-    func fetchRecentSuggestions(completion: @escaping (_ : [Suggestion]) -> Void) {
+    func fetchRecent(completion: @escaping (_ : [Suggestion]) -> Void) {
         let request = NSFetchRequest<SuggestionEntity>(entityName: SuggestionEntity.className)
         request.fetchLimit = 10
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(SuggestionEntity.createdAt), ascending: false)]

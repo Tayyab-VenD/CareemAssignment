@@ -13,21 +13,21 @@ import XCTest
 class SearchMoviesViewModelTests: XCTestCase {
 
     var client: StubAPIClient!
-    var persistence: StubPersistence!
+    var repository: StubSuggestionRepository!
     var viewModel: SearchMoviesViewModel!
 
     override func setUp() {
         super.setUp()
 
         client = StubAPIClient()
-        persistence = StubPersistence()
-        viewModel = SearchMoviesViewModel(client: client, persistence: persistence)
+        repository = StubSuggestionRepository()
+        viewModel = SearchMoviesViewModel(client: client, repository: repository)
     }
 
     func testSuggestionsRefreshedEvent() {
         let expectation = self.expectation(description: "Suggestions refreshed event expectation")
 
-        persistence.recentSuggestions = []
+        repository.recent = []
 
         viewModel.on { (event) in
             switch event {

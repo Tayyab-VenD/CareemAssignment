@@ -17,7 +17,7 @@
 		7D2D0A5B2020741F0087A838 /* WebRequest+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A5A2020741F0087A838 /* WebRequest+Testing.swift */; };
 		7D2DD3D82019C92100A23F40 /* EventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3D72019C92100A23F40 /* EventObservable.swift */; };
 		7D2DD3DA2019E1CB00A23F40 /* InMemoryCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3D92019E1CB00A23F40 /* InMemoryCoreDataStack.swift */; };
-		7D2DD3DC2019E33900A23F40 /* CoreDataPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3DB2019E33900A23F40 /* CoreDataPersistenceTests.swift */; };
+		7D2DD3DC2019E33900A23F40 /* CoreDataSuggestionRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3DB2019E33900A23F40 /* CoreDataSuggestionRepositoryTests.swift */; };
 		7D2DD3DF2019F21900A23F40 /* Suggestion+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3DE2019F21900A23F40 /* Suggestion+Testing.swift */; };
 		7D2DD474201A1BE500A23F40 /* Movie+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD473201A1BE500A23F40 /* Movie+Testing.swift */; };
 		7D2DD476201A1E3900A23F40 /* SearchResponse+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD475201A1E3900A23F40 /* SearchResponse+Testing.swift */; };
@@ -40,15 +40,15 @@
 		7D3566C5201F3B360083F637 /* DateFormatter+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3566C4201F3B360083F637 /* DateFormatter+Formats.swift */; };
 		7D3566C7201F59B30083F637 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3566C6201F59B30083F637 /* SearchRequest.swift */; };
 		7D389EB3201889540031AF30 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EB2201889540031AF30 /* UIViewController+Alerts.swift */; };
-		7D389EBA201897A40031AF30 /* CoreDataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EB9201897A40031AF30 /* CoreDataPersistence.swift */; };
+		7D389EBA201897A40031AF30 /* CoreDataSuggestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EB9201897A40031AF30 /* CoreDataSuggestionRepository.swift */; };
 		7D389EBC201899590031AF30 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EBB201899590031AF30 /* CoreDataStack.swift */; };
 		7D389EBF2018AB920031AF30 /* PersistenceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EBD2018AB920031AF30 /* PersistenceModel.xcdatamodeld */; };
 		7D389ECA2018AC9F0031AF30 /* SuggestionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EC82018AC9F0031AF30 /* SuggestionEntity+CoreDataClass.swift */; };
 		7D389ECB2018AC9F0031AF30 /* SuggestionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EC92018AC9F0031AF30 /* SuggestionEntity+CoreDataProperties.swift */; };
 		7D389ED12018ADF20031AF30 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389ED02018ADF20031AF30 /* Suggestion.swift */; };
 		7D389ED92018BB350031AF30 /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389ED82018BB350031AF30 /* NSObject+ClassName.swift */; };
-		7D389EDB2018BC290031AF30 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EDA2018BC290031AF30 /* Persistence.swift */; };
-		7D5D2256201B0E350022DFC4 /* StubPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D2255201B0E350022DFC4 /* StubPersistence.swift */; };
+		7D389EDB2018BC290031AF30 /* SuggestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D389EDA2018BC290031AF30 /* SuggestionRepository.swift */; };
+		7D5D2256201B0E350022DFC4 /* StubSuggestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D2255201B0E350022DFC4 /* StubSuggestionRepository.swift */; };
 		7D5D225B201B10530022DFC4 /* SearchMoviesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D225A201B10530022DFC4 /* SearchMoviesViewModelTests.swift */; };
 		7D5D225D201B19AF0022DFC4 /* NSError+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D225C201B19AF0022DFC4 /* NSError+Testing.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +74,7 @@
 		7D2D0A5A2020741F0087A838 /* WebRequest+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebRequest+Testing.swift"; sourceTree = "<group>"; };
 		7D2DD3D72019C92100A23F40 /* EventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObservable.swift; sourceTree = "<group>"; };
 		7D2DD3D92019E1CB00A23F40 /* InMemoryCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCoreDataStack.swift; sourceTree = "<group>"; };
-		7D2DD3DB2019E33900A23F40 /* CoreDataPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceTests.swift; sourceTree = "<group>"; };
+		7D2DD3DB2019E33900A23F40 /* CoreDataSuggestionRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSuggestionRepositoryTests.swift; sourceTree = "<group>"; };
 		7D2DD3DE2019F21900A23F40 /* Suggestion+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Suggestion+Testing.swift"; sourceTree = "<group>"; };
 		7D2DD473201A1BE500A23F40 /* Movie+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Testing.swift"; sourceTree = "<group>"; };
 		7D2DD475201A1E3900A23F40 /* SearchResponse+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResponse+Testing.swift"; sourceTree = "<group>"; };
@@ -101,15 +101,15 @@
 		7D3566C4201F3B360083F637 /* DateFormatter+Formats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formats.swift"; sourceTree = "<group>"; };
 		7D3566C6201F59B30083F637 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		7D389EB2201889540031AF30 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
-		7D389EB9201897A40031AF30 /* CoreDataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistence.swift; sourceTree = "<group>"; };
+		7D389EB9201897A40031AF30 /* CoreDataSuggestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSuggestionRepository.swift; sourceTree = "<group>"; };
 		7D389EBB201899590031AF30 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7D389EBE2018AB920031AF30 /* Persistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Persistence.xcdatamodel; sourceTree = "<group>"; };
 		7D389EC82018AC9F0031AF30 /* SuggestionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7D389EC92018AC9F0031AF30 /* SuggestionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SuggestionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D389ED02018ADF20031AF30 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		7D389ED82018BB350031AF30 /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
-		7D389EDA2018BC290031AF30 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		7D5D2255201B0E350022DFC4 /* StubPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPersistence.swift; sourceTree = "<group>"; };
+		7D389EDA2018BC290031AF30 /* SuggestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRepository.swift; sourceTree = "<group>"; };
+		7D5D2255201B0E350022DFC4 /* StubSuggestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSuggestionRepository.swift; sourceTree = "<group>"; };
 		7D5D225A201B10530022DFC4 /* SearchMoviesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewModelTests.swift; sourceTree = "<group>"; };
 		7D5D225C201B19AF0022DFC4 /* NSError+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Testing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,9 +137,9 @@
 		7D2DD3E02019FF7900A23F40 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				7D2DD3DB2019E33900A23F40 /* CoreDataPersistenceTests.swift */,
+				7D2DD3DB2019E33900A23F40 /* CoreDataSuggestionRepositoryTests.swift */,
 				7D2DD3D92019E1CB00A23F40 /* InMemoryCoreDataStack.swift */,
-				7D5D2255201B0E350022DFC4 /* StubPersistence.swift */,
+				7D5D2255201B0E350022DFC4 /* StubSuggestionRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -290,12 +290,12 @@
 		7D389EB82018970A0031AF30 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				7D389EB9201897A40031AF30 /* CoreDataPersistence.swift */,
 				7D389EBB201899590031AF30 /* CoreDataStack.swift */,
-				7D389EDA2018BC290031AF30 /* Persistence.swift */,
+				7D389EB9201897A40031AF30 /* CoreDataSuggestionRepository.swift */,
 				7D389EBD2018AB920031AF30 /* PersistenceModel.xcdatamodeld */,
 				7D389EC82018AC9F0031AF30 /* SuggestionEntity+CoreDataClass.swift */,
 				7D389EC92018AC9F0031AF30 /* SuggestionEntity+CoreDataProperties.swift */,
+				7D389EDA2018BC290031AF30 /* SuggestionRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -440,7 +440,7 @@
 				7D389ED92018BB350031AF30 /* NSObject+ClassName.swift in Sources */,
 				7D389EB3201889540031AF30 /* UIViewController+Alerts.swift in Sources */,
 				7D389EBF2018AB920031AF30 /* PersistenceModel.xcdatamodeld in Sources */,
-				7D389EDB2018BC290031AF30 /* Persistence.swift in Sources */,
+				7D389EDB2018BC290031AF30 /* SuggestionRepository.swift in Sources */,
 				7D389ECA2018AC9F0031AF30 /* SuggestionEntity+CoreDataClass.swift in Sources */,
 				7D32BDB820174B9900E6DC0F /* SearchMoviesViewModel.swift in Sources */,
 				7D3566C7201F59B30083F637 /* SearchRequest.swift in Sources */,
@@ -448,7 +448,7 @@
 				7D32BDB62017472D00E6DC0F /* SearchResponse.swift in Sources */,
 				7D2DD3D82019C92100A23F40 /* EventObservable.swift in Sources */,
 				7D2D0A46202036BB0087A838 /* APIConfiguration.swift in Sources */,
-				7D389EBA201897A40031AF30 /* CoreDataPersistence.swift in Sources */,
+				7D389EBA201897A40031AF30 /* CoreDataSuggestionRepository.swift in Sources */,
 				7D32BDBB20174D9700E6DC0F /* MovieResultCell.swift in Sources */,
 				7D3566BE201F0DC90083F637 /* URL+Query.swift in Sources */,
 				7D2D0A4820203C100087A838 /* ImageManager.swift in Sources */,
@@ -464,7 +464,7 @@
 			files = (
 				7D2D0A5B2020741F0087A838 /* WebRequest+Testing.swift in Sources */,
 				7D2D0A522020485B0087A838 /* WebResponse+Testing.swift in Sources */,
-				7D2DD3DC2019E33900A23F40 /* CoreDataPersistenceTests.swift in Sources */,
+				7D2DD3DC2019E33900A23F40 /* CoreDataSuggestionRepositoryTests.swift in Sources */,
 				7D2D0A502020444F0087A838 /* APIConfiguration+Testing.swift in Sources */,
 				7D2DD474201A1BE500A23F40 /* Movie+Testing.swift in Sources */,
 				7D5D225B201B10530022DFC4 /* SearchMoviesViewModelTests.swift in Sources */,
@@ -475,7 +475,7 @@
 				7D2D0A5720205E9C0087A838 /* ParsableURLSesssionAPIClient.swift in Sources */,
 				7D5D225D201B19AF0022DFC4 /* NSError+Testing.swift in Sources */,
 				7D2D0A4C202043D20087A838 /* StubAPIClient.swift in Sources */,
-				7D5D2256201B0E350022DFC4 /* StubPersistence.swift in Sources */,
+				7D5D2256201B0E350022DFC4 /* StubSuggestionRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

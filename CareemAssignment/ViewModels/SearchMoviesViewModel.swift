@@ -11,7 +11,7 @@ import Foundation
 class SearchMoviesViewModel {
 
     var client: APIClient
-    var persistence: Persistence
+    var repository: SuggestionRepository
 
     private var searchQuery: String = ""
     private var currentPage: Int = 0
@@ -26,9 +26,9 @@ class SearchMoviesViewModel {
 
     private var observer: ((_ event: Event) -> Void)?
 
-    init(client: APIClient, persistence: Persistence) {
+    init(client: APIClient, repository: SuggestionRepository) {
         self.client = client
-        self.persistence = persistence
+        self.repository = repository
     }
 
     private func notify(_ event: Event) {
@@ -45,7 +45,7 @@ class SearchMoviesViewModel {
                     self.notify(.noResultFound)
                 } else {
                     // Save the query as suggestion.
-                    self.persistence.saveSuggestion(Suggestion(text: query))
+                    self.repository.save(Suggestion(text: query))
 
                     // Save the response for paging.
                     self.searchQuery = query
@@ -67,7 +67,7 @@ class SearchMoviesViewModel {
     }
 
     func refreshSuggestions() {
-        persistence.fetchRecentSuggestions { (suggestions) in
+        repository.fetchRecent { (suggestions) in
             self.suggestions = suggestions
             self.notify(.suggestionsRefreshed)
         }

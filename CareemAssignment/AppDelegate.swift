@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             apiKey: Constants.MovieDB.apiKey
         )
         let client = URLSessionAPIClient(configuration, session: URLSession.shared)
-        let persistence = CoreDataPersistence(CoreDataStack(name: "PersistenceModel"))
+        let repository = CoreDataSuggestionRepository(CoreDataStack(name: "PersistenceModel"))
 
         // Inject view model into the root view controller.
         let viewController = window!.rootViewController as! SearchMoviesViewController
-        viewController.viewModel = SearchMoviesViewModel(client: client, persistence: persistence)
+        viewController.viewModel = SearchMoviesViewModel(client: client, repository: repository)
 
         return true
     }
