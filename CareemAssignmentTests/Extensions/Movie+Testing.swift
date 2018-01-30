@@ -11,7 +11,7 @@ import Foundation
 @testable import CareemAssignment
 
 extension Movie {
-    static func stub() -> Movie {
+    static var stub: Movie {
         return Movie(
             id: 1,
             overview: "overview",

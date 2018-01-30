@@ -90,7 +90,7 @@ class SearchMoviesViewModelTests: XCTestCase {
         let expectation = self.expectation(description: "API error event expectation")
 
         client.apiModel = nil
-        client.apiError = NSError.stub()
+        client.apiError = NSError.stub
 
         viewModel.on { (event) in
             switch event {

@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSError {
-    static func stub() -> NSError {
+    static var stub: NSError {
         return NSError(
             domain: "domain",
             code: 0,

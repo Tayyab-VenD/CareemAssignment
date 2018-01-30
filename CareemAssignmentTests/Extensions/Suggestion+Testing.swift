@@ -11,7 +11,7 @@ import Foundation
 @testable import CareemAssignment
 
 extension Suggestion {
-    static func stub() -> Suggestion {
+    static var stub: Suggestion {
         return Suggestion(text: "text")
     }
 }

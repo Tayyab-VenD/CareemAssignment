@@ -34,7 +34,7 @@ class SearchRequestTests: XCTestCase {
                     "query": "query",
                     "page": "1"
                 ]
-                )!
+            )!
         )
 
         let value = sample.webRequest(with: configuration)
@@ -94,7 +94,7 @@ class SearchRequestTests: XCTestCase {
     }
 
     func testSearchMoviesFailure() {
-        let sample = NSError.stub()
+        let sample = NSError.stub
         client.webResponse = WebResponse(error: sample)
 
         let expectation = self.expectation(description: "Search movies failure expectation")

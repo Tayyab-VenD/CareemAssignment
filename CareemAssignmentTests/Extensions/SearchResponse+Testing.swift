@@ -12,7 +12,7 @@ import Foundation
 
 extension SearchResponse {
     static func stub(results: Int = 0) -> SearchResponse {
-        let results = Array<Movie>(repeating: Movie.stub(), count: results)
+        let results = Array<Movie>(repeating: Movie.stub, count: results)
 
         return SearchResponse(
             page: 1,

@@ -12,7 +12,7 @@ import Foundation
 
 class StubAPIClient: APIClient {
 
-    var configuration = APIConfiguration.stub()
+    var configuration = APIConfiguration.stub
     var webResponse: WebResponse!
     var apiModel: Any!
     var apiError: Error!

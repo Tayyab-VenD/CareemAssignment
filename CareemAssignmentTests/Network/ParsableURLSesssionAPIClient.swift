@@ -15,7 +15,7 @@ class ParsableURLSesssionAPIClient : URLSessionAPIClient {
     var webResponse: WebResponse!
 
     init() {
-        super.init(APIConfiguration.stub(), session: URLSession.shared)
+        super.init(APIConfiguration.stub, session: URLSession.shared)
     }
 
     override func execute(_ webRequest: WebRequest, completion: @escaping (WebResponse) -> Void) {

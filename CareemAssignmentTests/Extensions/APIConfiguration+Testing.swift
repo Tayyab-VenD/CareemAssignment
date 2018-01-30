@@ -11,7 +11,7 @@ import Foundation
 @testable import CareemAssignment
 
 extension APIConfiguration {
-    static func stub() -> APIConfiguration {
+    static var stub: APIConfiguration {
         return APIConfiguration(
             baseURL: URL(string: "http://www.base.url/")!,
             imageURL: URL(string: "http://www.image.url/")!,
