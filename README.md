@@ -7,7 +7,6 @@ This assignment consists of a single screen where a user can search movies by ty
 This app additionally depends on following open source libraries.
 * [SDWebImage](https://github.com/rs/SDWebImage) - For async image loading and caching
 * [UIScrollView-InfiniteScroll](https://github.com/pronebird/UIScrollView-InfiniteScroll) - For pagination support
-* [Mockingjay](https://github.com/kylef/Mockingjay) - For testing HTTP requests
 
 # Architecture
 
@@ -29,9 +28,8 @@ A view model knows nothing about a view but emits events which a view observes t
 
 ## Network
 
-This layer is responsible for executing web requests and providing response in completion block. There is a `WebClient` protocol that expects a raw request, executes it and provides a raw response. Its implementation can be built on `URLSession`, `Alamofire` or any other networking library. The `MovieDBService` protocol is responsible for generating raw requests and parsing raw responses to models.
+This layer is responsible for executing web requests and providing response in asynchronous way. There is a `APIClient` protocol which expects the execution of a request. Its implementation is built on `URLSession`, but can be easily changed to any other networking library. The `APIRequest` protocol declares a model data type for response and a method for generating raw web request, which a client can execute.  So there should be a separate struct for each api endpoint.
 
 ## Persistence
 
-This layer is responsible for persisting data. There is a protocol named `Persistence` which covers all aspects of data persistence. Its implementation can be built on core data, sqlite or any other library.
-
+This layer is responsible for persisting data based on repository pattern. So there should be a separate repository class for each different kind of entity.
