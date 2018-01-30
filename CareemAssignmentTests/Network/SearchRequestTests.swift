@@ -1,42 +1,65 @@
 //
-//  MovieDBWebServiceTests.swift
+//  SearchRequestTests.swift
 //  CareemAssignmentTests
 //
-//  Created by Muhammad Tayyab Akram on 25/01/2018.
+//  Created by Muhammad Tayyab Akram on 30/01/2018.
 //  Copyright © 2018 Muhammad Tayyab Akram. All rights reserved.
 //
 
 import Foundation
-import Mockingjay
 import XCTest
 
 @testable import CareemAssignment
 
-class MovieDBWebServiceTests: XCTestCase {
+class SearchRequestTests: XCTestCase {
 
-    private var service: MovieDBWebService!
+    private var configuration: APIConfiguration!
+    private var client: ParsableURLSesssionAPIClient!
 
     override func setUp() {
         super.setUp()
+        client = ParsableURLSesssionAPIClient()
+        configuration = client.configuration
+    }
 
-        let client = URLSessionWebClient(URLSession.shared)
-        service = MovieDBWebService(client)
+    func testWebRequest() {
+        let sample = SearchRequest(query: "query", page: 1)
+        let expected = WebRequest(
+            method: .get,
+            url: URL(
+                base: configuration.baseURL,
+                path: "/search/movie",
+                parameters: [
+                    "api_key": configuration.apiKey,
+                    "query": "query",
+                    "page": "1"
+                ]
+                )!
+        )
+
+        let value = sample.webRequest(with: configuration)
+
+        XCTAssertEqual(value, expected, "The web request is not the expected one")
     }
 
     func testSearchMoviesSuccess() {
-        let sample: [String: Any] = [
+        let sample = """
+        {
             "page": 1,
             "results": [
-                ["id": 1,
-                 "overview": "overview",
-                 "poster_path": "poster_path",
-                 "release_date": "1970-01-01",
-                 "title": "title"]
+                {
+                    "id": 1,
+                    "overview": "overview",
+                    "poster_path": "poster_path",
+                    "release_date": "1970-01-01",
+                    "title": "title"
+                }
             ],
             "total_results": 1,
             "total_pages": 1
-        ]
-        stub(everything, json(sample))
+        }
+        """
+        client.webResponse = WebResponse(string: sample)
 
         let expected = SearchResponse(
             page: 1,
@@ -55,7 +78,8 @@ class MovieDBWebServiceTests: XCTestCase {
 
         let expectation = self.expectation(description: "Search movies success expectation")
 
-        service.searchMovies(query: "query", page: 1) { (result) in
+        let request = SearchRequest(query: "query", page: 1)
+        client.execute(request) { (result) in
             switch result {
             case .success(let value):
                 XCTAssertEqual(value, expected, "The result is not the expected one")
@@ -67,19 +91,16 @@ class MovieDBWebServiceTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 1, handler: nil)
-
-        defer {
-            removeAllStubs()
-        }
     }
 
     func testSearchMoviesFailure() {
         let sample = NSError.stub()
-        stub(everything, failure(sample))
+        client.webResponse = WebResponse(error: sample)
 
         let expectation = self.expectation(description: "Search movies failure expectation")
 
-        service.searchMovies(query: "query", page: 1) { (result) in
+        let request = SearchRequest(query: "query", page: 1)
+        client.execute(request) { (result) in
             switch result {
             case .success(_):
                 XCTFail("Expected test error to be received")
@@ -91,9 +112,5 @@ class MovieDBWebServiceTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 1, handler: nil)
-
-        defer {
-            removeAllStubs()
-        }
     }
 }

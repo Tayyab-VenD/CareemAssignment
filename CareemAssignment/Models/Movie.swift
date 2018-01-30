@@ -75,10 +75,7 @@ struct Movie {
 
 extension Movie : Decodable {
     init(from decoder: Decoder) throws {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        let formatter = DateFormatter.commonWebFormat
 
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int64.self, forKey: .id)

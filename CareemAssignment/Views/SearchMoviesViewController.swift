@@ -15,7 +15,13 @@ class SearchMoviesViewController: UIViewController {
     @IBOutlet private weak var resultsTableView: UITableView!
     @IBOutlet private weak var suggestionsTableView: UITableView!
 
-    var viewModel: SearchMoviesViewModel!
+    private var imageManager: ImageManager!
+
+    var viewModel: SearchMoviesViewModel! {
+        didSet {
+            imageManager = ImageManager(viewModel.client.configuration)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,7 +171,7 @@ extension SearchMoviesViewController : UITableViewDataSource {
         if tableView == resultsTableView {
             let item = viewModel.searchResults[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieResultCell", for: indexPath) as! MovieResultCell
-            cell.configure(with: MovieResultViewModel(service: viewModel.service, movie: item))
+            cell.configure(with: MovieResultViewModel(item, imageManager: imageManager))
 
             return cell
         }

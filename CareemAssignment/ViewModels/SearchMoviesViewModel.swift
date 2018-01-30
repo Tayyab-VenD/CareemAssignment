@@ -10,7 +10,7 @@ import Foundation
 
 class SearchMoviesViewModel {
 
-    var service: MovieDBService
+    var client: APIClient
     var persistence: Persistence
 
     private var searchQuery: String = ""
@@ -26,13 +26,19 @@ class SearchMoviesViewModel {
 
     private var observer: ((_ event: Event) -> Void)?
 
-    init(service: MovieDBService, persistence: Persistence) {
-        self.service = service
+    init(client: APIClient, persistence: Persistence) {
+        self.client = client
         self.persistence = persistence
     }
 
+    private func notify(_ event: Event) {
+        // Notify the event to observer.
+        self.observer?(event)
+    }
+
     private func searchMovies(query: String, page: Int) {
-        service.searchMovies(query: query, page: page) { (result) in
+        let request = SearchRequest(query: query, page: page)
+        client.execute(request) { (result) in
             switch result {
             case .success(let value):
                 if page == 1 && value.results.count == 0 {
@@ -91,11 +97,6 @@ extension SearchMoviesViewModel : EventObservable {
     func on(_ observer: @escaping (Event) -> Void) {
         // Register the observer.
         self.observer = observer
-    }
-
-    private func notify(_ event: Event) {
-        // Notify the event to observer.
-        self.observer?(event)
     }
 }
 

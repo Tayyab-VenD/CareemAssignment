@@ -16,13 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Create default instances.
-        let client = URLSessionWebClient(URLSession.shared)
-        let service = MovieDBWebService(client)
+        let configuration = APIConfiguration(
+            baseURL: URL(string: Constants.MovieDB.apiBaseURL)!,
+            imageURL: URL(string: Constants.MovieDB.imageBaseURL)!,
+            apiKey: Constants.MovieDB.apiKey
+        )
+        let client = URLSessionAPIClient(configuration, session: URLSession.shared)
         let persistence = CoreDataPersistence(CoreDataStack(name: "PersistenceModel"))
 
         // Inject view model into the root view controller.
         let viewController = window!.rootViewController as! SearchMoviesViewController
-        viewController.viewModel = SearchMoviesViewModel(service: service, persistence: persistence)
+        viewController.viewModel = SearchMoviesViewModel(client: client, persistence: persistence)
 
         return true
     }

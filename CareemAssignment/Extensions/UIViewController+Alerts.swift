@@ -12,14 +12,14 @@ import UIKit
 extension UIViewController {
 
     func showOKAlert(title: String?, message: String?) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: Constants.General.ok, style: .default, handler: { (action) in
             self.dismiss(animated: true, completion: nil)
         }))
-        present(alertController, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
 
     func showNetworkError() {
-        showOKAlert(title: nil, message: "An unknown error occurred. Please check your internet connection and try again later.")
+        showOKAlert(title: nil, message: Constants.Alert.networkError)
     }
 }

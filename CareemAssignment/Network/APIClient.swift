@@ -1,5 +1,5 @@
 //
-//  WebClient.swift
+//  APIClient.swift
 //  CareemAssignment
 //
 //  Created by Muhammad Tayyab Akram on 29/01/2018.
@@ -33,10 +33,24 @@ struct WebRequest {
 }
 
 struct WebResponse {
-    var data: Data?
-    var error: Error?
+    var data: Data? = nil
+    var error: Error? = nil
 }
 
-protocol WebClient {
-    func execute(request: WebRequest, completion: @escaping (_ response: WebResponse) -> Void)
+protocol APIRequest {
+    associatedtype Model : Decodable
+
+    func webRequest(with configuration: APIConfiguration) -> WebRequest
+}
+
+enum APIResult<T> {
+    case success(T)
+    case failure(Error)
+}
+
+protocol APIClient {
+    var configuration: APIConfiguration { get }
+
+    func execute(_ webRequest: WebRequest, completion: @escaping (_ webResponse: WebResponse) -> Void)
+    func execute<T>(_ apiRequest: T, completion: @escaping (APIResult<T.Model>) -> Void) where T : APIRequest
 }

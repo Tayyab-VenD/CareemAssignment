@@ -10,17 +10,17 @@ import Foundation
 
 class MovieResultViewModel {
 
-    private let service: MovieDBService
     private let movie: Movie
+    private let imageManager: ImageManager
 
-    init(service: MovieDBService, movie: Movie) {
-        self.service = service
+    init(_ movie: Movie, imageManager: ImageManager) {
         self.movie = movie
+        self.imageManager = imageManager
     }
 
     var posterURL: URL? {
         if let path = movie.posterPath {
-            return service.posterURL(from: path, with: .w185)
+            return imageManager.posterURL(from: path, with: .w185)
         }
 
         return nil
@@ -36,14 +36,9 @@ class MovieResultViewModel {
 
     var releaseDate: String {
         if let releaseDate = movie.releaseDate {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM d, yyyy"
-            formatter.timeZone = TimeZone(secondsFromGMT: 0)
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-
-            return formatter.string(from: releaseDate)
+            return DateFormatter.commonDisplayFormat.string(from: releaseDate)
         }
 
-        return "Unknown"
+        return Constants.General.unknown
     }
 }
