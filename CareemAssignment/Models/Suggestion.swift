@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Suggestion {
+struct Suggestion : Codable {
     let text: String
 }

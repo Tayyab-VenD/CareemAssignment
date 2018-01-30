@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		7D0B1E36202086E200214AFC /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E35202086E200214AFC /* SuggestionCell.swift */; };
 		7D0B1E382020875600214AFC /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E372020875600214AFC /* SuggestionViewModel.swift */; };
+		7D0B1E3B20209B1000214AFC /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E3A20209B1000214AFC /* APIOperation.swift */; };
+		7D0B1E3D20209E3B00214AFC /* Encodable+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E3C20209E3B00214AFC /* Encodable+Testing.swift */; };
+		7D0B1E3F2020AD1900214AFC /* MovieResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B1E3E2020AD1900214AFC /* MovieResultViewModelTests.swift */; };
 		7D2D0A46202036BB0087A838 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A45202036BB0087A838 /* APIConfiguration.swift */; };
 		7D2D0A4820203C100087A838 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A4720203C100087A838 /* ImageManager.swift */; };
 		7D2D0A4C202043D20087A838 /* StubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A4B202043D20087A838 /* StubAPIClient.swift */; };
 		7D2D0A502020444F0087A838 /* APIConfiguration+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A4F2020444F0087A838 /* APIConfiguration+Testing.swift */; };
 		7D2D0A522020485B0087A838 /* WebResponse+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A512020485B0087A838 /* WebResponse+Testing.swift */; };
-		7D2D0A5720205E9C0087A838 /* ParsableURLSesssionAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A5620205E9C0087A838 /* ParsableURLSesssionAPIClient.swift */; };
 		7D2D0A59202072A50087A838 /* SearchRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A58202072A50087A838 /* SearchRequestTests.swift */; };
 		7D2D0A5B2020741F0087A838 /* WebRequest+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2D0A5A2020741F0087A838 /* WebRequest+Testing.swift */; };
 		7D2DD3D82019C92100A23F40 /* EventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DD3D72019C92100A23F40 /* EventObservable.swift */; };
@@ -68,12 +70,14 @@
 /* Begin PBXFileReference section */
 		7D0B1E35202086E200214AFC /* SuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		7D0B1E372020875600214AFC /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
+		7D0B1E3A20209B1000214AFC /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
+		7D0B1E3C20209E3B00214AFC /* Encodable+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Testing.swift"; sourceTree = "<group>"; };
+		7D0B1E3E2020AD1900214AFC /* MovieResultViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultViewModelTests.swift; sourceTree = "<group>"; };
 		7D2D0A45202036BB0087A838 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		7D2D0A4720203C100087A838 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		7D2D0A4B202043D20087A838 /* StubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAPIClient.swift; sourceTree = "<group>"; };
 		7D2D0A4F2020444F0087A838 /* APIConfiguration+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIConfiguration+Testing.swift"; sourceTree = "<group>"; };
 		7D2D0A512020485B0087A838 /* WebResponse+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebResponse+Testing.swift"; sourceTree = "<group>"; };
-		7D2D0A5620205E9C0087A838 /* ParsableURLSesssionAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableURLSesssionAPIClient.swift; sourceTree = "<group>"; };
 		7D2D0A58202072A50087A838 /* SearchRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRequestTests.swift; sourceTree = "<group>"; };
 		7D2D0A5A2020741F0087A838 /* WebRequest+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebRequest+Testing.swift"; sourceTree = "<group>"; };
 		7D2DD3D72019C92100A23F40 /* EventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObservable.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				7D2D0A4F2020444F0087A838 /* APIConfiguration+Testing.swift */,
+				7D0B1E3C20209E3B00214AFC /* Encodable+Testing.swift */,
 				7D2DD473201A1BE500A23F40 /* Movie+Testing.swift */,
 				7D5D225C201B19AF0022DFC4 /* NSError+Testing.swift */,
 				7D2DD475201A1E3900A23F40 /* SearchResponse+Testing.swift */,
@@ -165,7 +170,6 @@
 		7D2DD46F201A172B00A23F40 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7D2D0A5620205E9C0087A838 /* ParsableURLSesssionAPIClient.swift */,
 				7D2D0A58202072A50087A838 /* SearchRequestTests.swift */,
 				7D2D0A4B202043D20087A838 /* StubAPIClient.swift */,
 			);
@@ -256,6 +260,7 @@
 			children = (
 				7D3566B9201F00810083F637 /* APIClient.swift */,
 				7D2D0A45202036BB0087A838 /* APIConfiguration.swift */,
+				7D0B1E3A20209B1000214AFC /* APIOperation.swift */,
 				7D2D0A4720203C100087A838 /* ImageManager.swift */,
 				7D3566C6201F59B30083F637 /* SearchRequest.swift */,
 				7D32BDB52017472D00E6DC0F /* SearchResponse.swift */,
@@ -309,6 +314,7 @@
 		7D5D2259201B10360022DFC4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7D0B1E3E2020AD1900214AFC /* MovieResultViewModelTests.swift */,
 				7D5D225A201B10530022DFC4 /* SearchMoviesViewModelTests.swift */,
 			);
 			path = ViewModels;
@@ -444,6 +450,7 @@
 				7D389ED12018ADF20031AF30 /* Suggestion.swift in Sources */,
 				7D389EBC201899590031AF30 /* CoreDataStack.swift in Sources */,
 				7D3566C0201F30CD0083F637 /* Constants.swift in Sources */,
+				7D0B1E3B20209B1000214AFC /* APIOperation.swift in Sources */,
 				7D389ED92018BB350031AF30 /* NSObject+ClassName.swift in Sources */,
 				7D389EB3201889540031AF30 /* UIViewController+Alerts.swift in Sources */,
 				7D389EBF2018AB920031AF30 /* PersistenceModel.xcdatamodeld in Sources */,
@@ -473,14 +480,15 @@
 				7D2D0A5B2020741F0087A838 /* WebRequest+Testing.swift in Sources */,
 				7D2D0A522020485B0087A838 /* WebResponse+Testing.swift in Sources */,
 				7D2DD3DC2019E33900A23F40 /* CoreDataSuggestionRepositoryTests.swift in Sources */,
+				7D0B1E3F2020AD1900214AFC /* MovieResultViewModelTests.swift in Sources */,
 				7D2D0A502020444F0087A838 /* APIConfiguration+Testing.swift in Sources */,
+				7D0B1E3D20209E3B00214AFC /* Encodable+Testing.swift in Sources */,
 				7D2DD474201A1BE500A23F40 /* Movie+Testing.swift in Sources */,
 				7D5D225B201B10530022DFC4 /* SearchMoviesViewModelTests.swift in Sources */,
 				7D2DD476201A1E3900A23F40 /* SearchResponse+Testing.swift in Sources */,
 				7D2D0A59202072A50087A838 /* SearchRequestTests.swift in Sources */,
 				7D2DD3DF2019F21900A23F40 /* Suggestion+Testing.swift in Sources */,
 				7D2DD3DA2019E1CB00A23F40 /* InMemoryCoreDataStack.swift in Sources */,
-				7D2D0A5720205E9C0087A838 /* ParsableURLSesssionAPIClient.swift in Sources */,
 				7D5D225D201B19AF0022DFC4 /* NSError+Testing.swift in Sources */,
 				7D2D0A4C202043D20087A838 /* StubAPIClient.swift in Sources */,
 				7D5D2256201B0E350022DFC4 /* StubSuggestionRepository.swift in Sources */,

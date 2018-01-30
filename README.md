@@ -28,8 +28,8 @@ A view model knows nothing about a view but emits events which a view observes t
 
 ## Network
 
-This layer is responsible for executing web requests and providing response in asynchronous way. There is a `APIClient` protocol which expects the execution of a request. Its implementation is built on `URLSession`, but can be easily changed to any other networking library. The `APIRequest` protocol declares a model data type for response and a method for generating raw web request, which a client can execute.  So there should be a separate struct for each api endpoint.
+This layer is responsible for executing web requests and providing response in asynchronous way. There is a `APIClient` protocol which expects the execution of a request. Its implementation is built on `URLSession`, but can be easily changed to any other networking library. The `APIOperation` protocol represents an executable api operation. So there would be a separate struct for each api endpoint.
 
 ## Persistence
 
-This layer is responsible for persisting data based on repository pattern. So there should be a separate repository class for each different kind of entity.
+This layer is responsible for persisting data based on repository pattern. So there would be a separate repository class for each different kind of entity.

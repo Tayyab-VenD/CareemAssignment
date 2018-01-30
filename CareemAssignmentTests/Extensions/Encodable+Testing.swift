@@ -1,5 +1,5 @@
 //
-//  WebResponse+Testing.swift
+//  Encodable+Testing.swift
 //  CareemAssignmentTests
 //
 //  Created by Muhammad Tayyab Akram on 30/01/2018.
@@ -10,9 +10,8 @@ import Foundation
 
 @testable import CareemAssignment
 
-extension WebResponse {
-
-    init(string: String) {
-        self.init(data: string.data(using: .utf8), error: nil)
+extension Encodable {
+    var jsonWebResponse: WebResponse {
+        return WebResponse(data: try? JSONEncoder().encode(self))
     }
 }

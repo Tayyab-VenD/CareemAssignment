@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Represents web methods, such as GET, POST, PUT, DELETE.
 enum WebMethod : String {
     case get = "GET"
     case post = "POST"
@@ -15,6 +16,7 @@ enum WebMethod : String {
     case delete = "DELETE"
 }
 
+/// Represents a raw web request.
 struct WebRequest {
     var method: WebMethod
     var url: URL
@@ -32,25 +34,22 @@ struct WebRequest {
     }
 }
 
+/// Represents a raw web response.
 struct WebResponse {
-    var data: Data? = nil
-    var error: Error? = nil
+    var data: Data?
+    var error: Error?
+
+    init(data: Data? = nil,
+         error: Error? = nil) {
+        self.data = data
+        self.error = error
+    }
 }
 
-protocol APIRequest {
-    associatedtype Model : Decodable
-
-    func webRequest(with configuration: APIConfiguration) -> WebRequest
-}
-
-enum APIResult<T> {
-    case success(T)
-    case failure(Error)
-}
-
+/// Responsible for executing a web request.
 protocol APIClient {
     var configuration: APIConfiguration { get }
 
+    /// Executes a web request asynchronously, and provides its response in completion block.
     func execute(_ webRequest: WebRequest, completion: @escaping (_ webResponse: WebResponse) -> Void)
-    func execute<T>(_ apiRequest: T, completion: @escaping (APIResult<T.Model>) -> Void) where T : APIRequest
 }

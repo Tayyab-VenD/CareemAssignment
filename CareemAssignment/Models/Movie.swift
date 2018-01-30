@@ -73,15 +73,32 @@ struct Movie {
     }
 }
 
+extension Movie : Encodable {
+    func encode(to encoder: Encoder) throws {
+        let formatter = DateFormatter.commonWebFormat
+
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(overview, forKey: .overview)
+        try container.encode(posterPath, forKey: .posterPath)
+        if let releaseDate = releaseDate {
+            try container.encode(formatter.string(from: releaseDate), forKey: .releaseDate)
+        } else {
+            try container.encode("", forKey: .releaseDate)
+        }
+        try container.encode(title, forKey: .title)
+    }
+}
+
 extension Movie : Decodable {
     init(from decoder: Decoder) throws {
         let formatter = DateFormatter.commonWebFormat
 
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decode(Int64.self, forKey: .id)
-        overview = try values.decode(String?.self, forKey: .overview)
-        posterPath = try values.decode(String?.self, forKey: .posterPath)
-        releaseDate = formatter.date(from: try values.decode(String.self, forKey: .releaseDate))
-        title = try values.decode(String.self, forKey: .title)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(Int64.self, forKey: .id)
+        overview = try container.decode(String?.self, forKey: .overview)
+        posterPath = try container.decode(String?.self, forKey: .posterPath)
+        releaseDate = formatter.date(from: try container.decode(String.self, forKey: .releaseDate))
+        title = try container.decode(String.self, forKey: .title)
     }
 }

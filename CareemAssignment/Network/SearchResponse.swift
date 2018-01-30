@@ -16,7 +16,7 @@ import Foundation
   "total_pages": 1
 }
 */
-struct SearchResponse : Decodable {
+struct SearchResponse : Codable {
     let page: Int
     let results: [Movie]
     let totalResults: Int

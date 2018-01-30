@@ -13,15 +13,19 @@ struct SearchRequest {
     let page: Int
 }
 
-extension SearchRequest : APIRequest {
+extension SearchRequest : APIOperation {
     typealias Model = SearchResponse
+
+    static var endpoint: String {
+        return "/search/movie"
+    }
 
     func webRequest(with configuration: APIConfiguration) -> WebRequest {
         return WebRequest(
             method: .get,
             url: URL(
                 base: configuration.baseURL,
-                path: "/search/movie",
+                path: SearchRequest.endpoint,
                 parameters: [
                     "api_key": configuration.apiKey,
                     "query": query,

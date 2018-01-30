@@ -25,9 +25,9 @@ class SearchMoviesViewModelTests: XCTestCase {
     }
 
     func testSuggestionsRefreshedEvent() {
-        let expectation = self.expectation(description: "Suggestions refreshed event expectation")
-
         repository.recent = []
+
+        let expectation = self.expectation(description: "Suggestions refreshed event expectation")
 
         viewModel.on { (event) in
             switch event {
@@ -45,10 +45,9 @@ class SearchMoviesViewModelTests: XCTestCase {
     }
 
     func testNoResultFoundEvent() {
-        let expectation = self.expectation(description: "No result found event expectation")
+        client.webResponse = SearchResponse.stub().jsonWebResponse
 
-        client.apiModel = SearchResponse.stub()
-        client.apiError = nil
+        let expectation = self.expectation(description: "No result found event expectation")
 
         viewModel.on { (event) in
             switch event {
@@ -66,10 +65,9 @@ class SearchMoviesViewModelTests: XCTestCase {
     }
 
     func testResultsUpdatedEvent() {
-        let expectation = self.expectation(description: "Results updated event expectation")
+        client.webResponse = SearchResponse.stub(results: 1).jsonWebResponse
 
-        client.apiModel = SearchResponse.stub(results: 1)
-        client.apiError = nil
+        let expectation = self.expectation(description: "Results updated event expectation")
 
         viewModel.on { (event) in
             switch event {
@@ -87,10 +85,9 @@ class SearchMoviesViewModelTests: XCTestCase {
     }
 
     func testAPIErrorEvent() {
-        let expectation = self.expectation(description: "API error event expectation")
+        client.webResponse = WebResponse(error: NSError.stub)
 
-        client.apiModel = nil
-        client.apiError = NSError.stub
+        let expectation = self.expectation(description: "API error event expectation")
 
         viewModel.on { (event) in
             switch event {

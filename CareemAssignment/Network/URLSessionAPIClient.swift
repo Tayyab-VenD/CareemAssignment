@@ -32,19 +32,4 @@ class URLSessionAPIClient : APIClient {
             }
         }.resume()
     }
-
-    func execute<T>(_ apiRequest: T, completion: @escaping (APIResult<T.Model>) -> Void) where T : APIRequest {
-        execute(apiRequest.webRequest(with: configuration)) { (response) in
-            if let error = response.error {
-                completion(.failure(error))
-            } else {
-                do {
-                    let result = try self.decoder.decode(T.Model.self, from: response.data!)
-                    completion(.success(result))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
 }

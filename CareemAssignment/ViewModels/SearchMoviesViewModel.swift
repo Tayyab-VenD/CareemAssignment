@@ -38,7 +38,7 @@ class SearchMoviesViewModel {
 
     private func searchMovies(query: String, page: Int) {
         let request = SearchRequest(query: query, page: page)
-        client.execute(request) { (result) in
+        request.execute(with: client) { (result) in
             switch result {
             case .success(let value):
                 if page == 1 && value.results.count == 0 {

@@ -14,11 +14,11 @@ import XCTest
 class SearchRequestTests: XCTestCase {
 
     private var configuration: APIConfiguration!
-    private var client: ParsableURLSesssionAPIClient!
+    private var client: StubAPIClient!
 
     override func setUp() {
         super.setUp()
-        client = ParsableURLSesssionAPIClient()
+        client = StubAPIClient()
         configuration = client.configuration
     }
 
@@ -79,7 +79,7 @@ class SearchRequestTests: XCTestCase {
         let expectation = self.expectation(description: "Search movies success expectation")
 
         let request = SearchRequest(query: "query", page: 1)
-        client.execute(request) { (result) in
+        request.execute(with: client) { (result) in
             switch result {
             case .success(let value):
                 XCTAssertEqual(value, expected, "The result is not the expected one")
@@ -100,7 +100,7 @@ class SearchRequestTests: XCTestCase {
         let expectation = self.expectation(description: "Search movies failure expectation")
 
         let request = SearchRequest(query: "query", page: 1)
-        client.execute(request) { (result) in
+        request.execute(with: client) { (result) in
             switch result {
             case .success(_):
                 XCTFail("Expected test error to be received")
