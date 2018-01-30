@@ -1,0 +1,9 @@
+{
+  "commitish" : "1.0.2",
+  "iOS" : [
+    {
+      "name" : "UIScrollView_InfiniteScroll",
+      "hash" : "8708a13f2e78486952331462be9992759ed5eb25fb3e88404862b6f7d46ec66b"
+    }
+  ]
+}
